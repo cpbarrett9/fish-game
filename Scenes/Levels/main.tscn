@@ -3,20 +3,24 @@
 [ext_resource type="Script" uid="uid://pp5ouem56jyh" path="res://Scripts/main.gd" id="1_7i1ub"]
 [ext_resource type="Script" uid="uid://y2n532cv67ei" path="res://Scripts/player_fish.gd" id="1_s0gyx"]
 [ext_resource type="Texture2D" uid="uid://cn3keth46yi4t" path="res://Sprites/sprite_playerFishRed.png" id="2_nk5xi"]
-[ext_resource type="Script" uid="uid://bnk3bomgijl2y" path="res://Scripts/npc_fish.gd" id="2_yjsus"]
-[ext_resource type="Texture2D" uid="uid://c7eb2qjdlx73i" path="res://Sprites/sprite_playerFish.png" id="4_7i1ub"]
+[ext_resource type="Script" uid="uid://bxgsnit0wmyd4" path="res://Scripts/spawner.gd" id="4_7i1ub"]
+[ext_resource type="PackedScene" uid="uid://b5db7dwugwytt" path="res://Scenes/Objects/npc_fish.tscn" id="5_w0lsm"]
+[ext_resource type="Texture2D" uid="uid://dilp0js3hkqe8" path="res://Sprites/background.png" id="6_w0lsm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w0lsm"]
 size = Vector2(88, 70)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpkgp"]
-size = Vector2(90, 73)
-
 [node name="Main" type="Node2D"]
 script = ExtResource("1_7i1ub")
 
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(578, 328)
+scale = Vector2(1.9999976, 2.159999)
+texture = ExtResource("6_w0lsm")
+
 [node name="PlayerFish" type="CharacterBody2D" parent="."]
 script = ExtResource("1_s0gyx")
+speed = 2.0
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerFish"]
 scale = Vector2(0.1, 0.1)
@@ -26,14 +30,10 @@ texture = ExtResource("2_nk5xi")
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_w0lsm")
 
-[node name="NPC_Fish" type="Area2D" parent="."]
-position = Vector2(350, 400)
-script = ExtResource("2_yjsus")
+[node name="Camera2D" type="Camera2D" parent="PlayerFish"]
 
-[node name="Sprite2D" type="Sprite2D" parent="NPC_Fish"]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_7i1ub")
+[node name="Spawner" type="Node2D" parent="."]
+script = ExtResource("4_7i1ub")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC_Fish"]
-position = Vector2(-3, 0.5)
-shape = SubResource("RectangleShape2D_tpkgp")
+[node name="NPC_Fish2" parent="." instance=ExtResource("5_w0lsm")]
+position = Vector2(143, 373)

@@ -1,21 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://4rhbs285kinv"]
+[gd_scene load_steps=4 format=3 uid="uid://b5db7dwugwytt"]
 
-[ext_resource type="Texture2D" uid="uid://c7eb2qjdlx73i" path="res://Sprites/sprite_playerFish.png" id="1_u1w8d"]
-[ext_resource type="Script" uid="uid://bnk3bomgijl2y" path="res://Scripts/npc_fish.gd" id="2_8c1k4"]
-[ext_resource type="Script" uid="uid://ck223mdypfcwa" path="res://Scenes/Objects/hitbox_npc.gd" id="3_eq8li"]
+[ext_resource type="Script" uid="uid://bnk3bomgijl2y" path="res://Scripts/npc_fish.gd" id="1_korfo"]
+[ext_resource type="Texture2D" uid="uid://c7eb2qjdlx73i" path="res://Sprites/sprite_playerFish.png" id="2_jbpgj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_344ge"]
-size = Vector2(855, 664.9999)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpkgp"]
+size = Vector2(90, 73)
 
-[node name="NPC_Fish" type="Sprite2D"]
+[node name="NPC_Fish" type="Area2D"]
+script = ExtResource("1_korfo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_u1w8d")
-script = ExtResource("2_8c1k4")
+texture = ExtResource("2_jbpgj")
 
-[node name="Hitbox_NPC" type="Area2D" parent="."]
-script = ExtResource("3_eq8li")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox_NPC"]
-position = Vector2(-10.000061, -9.999908)
-scale = Vector2(0.99999976, 0.99999976)
-shape = SubResource("RectangleShape2D_344ge")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 0.5)
+shape = SubResource("RectangleShape2D_tpkgp")

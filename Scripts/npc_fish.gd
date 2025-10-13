@@ -1,6 +1,6 @@
 extends Area2D
 
-@onready var main: Node2D = $".."
+@onready var main: Node2D = get_tree().get_root().get_node("Main")
 @export var pointValue: int = 5
 
 func _ready() -> void:
