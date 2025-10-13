@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://pp5ouem56jyh" path="res://Scripts/main.gd" id="1_7i1ub"]
 [ext_resource type="Script" uid="uid://y2n532cv67ei" path="res://Scripts/player_fish.gd" id="1_s0gyx"]
-[ext_resource type="Texture2D" uid="uid://cn3keth46yi4t" path="res://Sprites/sprite_playerFishRed.png" id="2_nk5xi"]
 [ext_resource type="Script" uid="uid://bxgsnit0wmyd4" path="res://Scripts/spawner.gd" id="4_7i1ub"]
+[ext_resource type="Texture2D" uid="uid://c5srg1m6v0wvf" path="res://Sprites/sprite_stripedFish.png" id="4_w0lsm"]
 [ext_resource type="PackedScene" uid="uid://b5db7dwugwytt" path="res://Scenes/Objects/npc_fish.tscn" id="5_w0lsm"]
 [ext_resource type="Texture2D" uid="uid://dilp0js3hkqe8" path="res://Sprites/background.png" id="6_w0lsm"]
 
@@ -23,14 +23,15 @@ script = ExtResource("1_s0gyx")
 speed = 2.0
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerFish"]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_nk5xi")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_w0lsm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerFish"]
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_w0lsm")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerFish"]
+zoom = Vector2(1.7, 1.7)
 
 [node name="Spawner" type="Node2D" parent="."]
 script = ExtResource("4_7i1ub")
