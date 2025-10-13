@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed: float = 5.0  # Higher = faster follow
 @onready var sprite = $Sprite2D 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
