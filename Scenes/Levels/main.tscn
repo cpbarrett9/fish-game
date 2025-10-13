@@ -1,11 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://cstrpg5n8semn"]
+[gd_scene load_steps=9 format=3 uid="uid://cstrpg5n8semn"]
 
 [ext_resource type="Script" uid="uid://pp5ouem56jyh" path="res://Scripts/main.gd" id="1_7i1ub"]
 [ext_resource type="Script" uid="uid://y2n532cv67ei" path="res://Scripts/player_fish.gd" id="1_s0gyx"]
 [ext_resource type="Script" uid="uid://bxgsnit0wmyd4" path="res://Scripts/spawner.gd" id="4_7i1ub"]
 [ext_resource type="Texture2D" uid="uid://c5srg1m6v0wvf" path="res://Sprites/sprite_stripedFish.png" id="4_w0lsm"]
 [ext_resource type="PackedScene" uid="uid://b5db7dwugwytt" path="res://Scenes/Objects/npc_fish.tscn" id="5_w0lsm"]
-[ext_resource type="Texture2D" uid="uid://dilp0js3hkqe8" path="res://Sprites/background.png" id="6_w0lsm"]
+[ext_resource type="Script" uid="uid://bxgsnit0wmyd4" path="res://Scripts/spawner.gd" id="4_7i1ub"]
+[ext_resource type="Texture2D" uid="uid://cn3keth46yi4t" path="res://Sprites/sprite_stripedFish.png" id="2_nk5xi"]
+[ext_resource type="Texture2D" uid="uid://c1pxuv2gm3cgs" path="res://Sprites/coral reef.png" id="2_w0lsm"]
+[ext_resource type="Script" uid="uid://bnk3bomgijl2y" path="res://Scripts/npc_fish.gd" id="2_yjsus"]
+[ext_resource type="Texture2D" uid="uid://c7eb2qjdlx73i" path="res://Sprites/sprite_playerFish.png" id="4_7i1ub"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w0lsm"]
 size = Vector2(88, 70)
@@ -13,14 +17,15 @@ size = Vector2(88, 70)
 [node name="Main" type="Node2D"]
 script = ExtResource("1_7i1ub")
 
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(578, 328)
-scale = Vector2(1.9999976, 2.159999)
-texture = ExtResource("6_w0lsm")
+[node name="CoralReef" type="Sprite2D" parent="."]
+position = Vector2(847.80884, 476.49994)
+scale = Vector2(1.1408721, 1.1413174)
+texture = ExtResource("2_w0lsm")
 
 [node name="PlayerFish" type="CharacterBody2D" parent="."]
+position = Vector2(577, 325)
 script = ExtResource("1_s0gyx")
-speed = 2.0
+speed = 3.0
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerFish"]
 scale = Vector2(0.3, 0.3)
@@ -31,7 +36,14 @@ position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_w0lsm")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerFish"]
-zoom = Vector2(1.7, 1.7)
+limit_left = 0
+limit_top = 0
+limit_right = 1696
+limit_bottom = 951
+
+[node name="NPC_Fish" type="Area2D" parent="."]
+position = Vector2(350, 400)
+script = ExtResource("2_yjsus")
 
 [node name="Spawner" type="Node2D" parent="."]
 script = ExtResource("4_7i1ub")
