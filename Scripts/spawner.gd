@@ -38,15 +38,12 @@ func spawn_fish(seconds: float) -> void:
 			spawnPosition = Vector2(xMin, randf_range(yMin, yMax)) # Spawn on left side
 			travelSpeed = 3 # Spawned on left, so travel right
 			fish_instance.get_node("Sprite2D").flip_h = false
-			print("Spawn on left")
 		2: #RIGHT:
 			spawnPosition = Vector2(xMax, randf_range(yMin, yMax)) # Spawn on right side
 			travelSpeed = -3 #Spawned on right, so travel left
 			fish_instance.get_node("Sprite2D").flip_h = true
-			print("Spawn on right")
 	
 	# SPAWN FISH OF APPROPRIATE TYPE WITH APPROPRIATE PARAMETERS:
-	print("Spawned a fish")
 	fish_instance.travelSpeed = travelSpeed
 	fish_instance.position = spawnPosition
 	add_child(fish_instance)                       # Add it to the current scene
