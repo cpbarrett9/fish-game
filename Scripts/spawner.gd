@@ -6,12 +6,13 @@ extends Node2D
 @export var yMax: int = 2010
 @export var minSeconds: float = 0
 @export var maxSeconds: float = 0.5
-@onready var fish_scene = preload("res://Scenes/Objects/npc_fish.tscn")
+@onready var fish_scene = preload("res://Scenes/Objects/npc_fish_small.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	spawn_fish(randf_range(minSeconds, maxSeconds)) # Spawns fish after 1-10 seconds (random)
-
+	var delay = randf() * 2.0  # up to 2 seconds random delay
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -31,7 +32,7 @@ func spawn_fish(seconds: float) -> void:
 		2: #RIGHT:
 			spawnPosition = Vector2(xMax, randf_range(yMin, yMax)) # Spawn on right side
 			travelSpeed = -3 #Spawned on right, so travel left
-			fish_instance.get_node("Sprite2D").flip_h = true #flip the sprite if the fish is travelling left
+			fish_instance.get_node("Sprite2D").flip_h = true
 			print("Spawn on right")
 	print("Spawned a fish")
 	fish_instance.travelSpeed = travelSpeed

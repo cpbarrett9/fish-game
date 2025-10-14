@@ -1,6 +1,6 @@
 extends Node2D
 
-var score: int = 0
+enum FishSize { SMALL, MEDIUM, LARGE}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
