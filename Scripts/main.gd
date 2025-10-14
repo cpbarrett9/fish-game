@@ -3,10 +3,11 @@ extends Node2D
 var score: int = 0
 var playerSize: int = 1
 var numLives: int = 3
-
+@onready var transition = $Transition
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#transition.doFadeOut()
 	pass # Replace with function body.
 
 

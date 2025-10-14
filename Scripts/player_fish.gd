@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var 	node_main: Node = get_node("/root/Main")
 @onready var 	collisionpolygon = $CollisionPolygon2DTEST
 @onready var 	characterbody = $CharacterBody2D
+@onready var 	transition = $"../Transition"
 
 # Scores thresholds triggering sizes + tracking booleans:
 @export var scoreToWin = 300
@@ -61,7 +62,12 @@ func _process(delta: float) -> void:
 	var x: float = 1 + ( node_main.getScore()*0.01 )
 	var y: float = 1 + ( node_main.getScore()*0.01 )
 	scale = Vector2(x, y)
-	
+
+func getPosition() -> Vector2:
+	var x: float = position.x
+	var y: float = position.y
+	return Vector2(x,y)
+
 func gameOver():
 	# Hide sprite / display message:
 	if !isGameOver:
@@ -86,8 +92,9 @@ func gameOver():
 			sprite.visible = true
 			movementEnabled = true
 			position = Vector2(577, 325)
-			$"../CanvasLayer/ScoreLabel".updateScoreManually() # Manually set the label to update to new score
+			$"../UI/ScoreLabel".updateScoreManually() # Manually set the label to update to new score
 			isGameOver = false
 			
 		else: # If not, then game over for real
+			transition.doFadeIn()
 			print("Game Over!")

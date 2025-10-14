@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cstrpg5n8semn"]
+[gd_scene load_steps=18 format=3 uid="uid://cstrpg5n8semn"]
 
 [ext_resource type="Script" uid="uid://pp5ouem56jyh" path="res://Scripts/main.gd" id="1_7i1ub"]
 [ext_resource type="Script" uid="uid://y2n532cv67ei" path="res://Scripts/player_fish.gd" id="1_s0gyx"]
@@ -12,6 +12,9 @@
 [ext_resource type="FontFile" uid="uid://bp0uouxxll3gu" path="res://BAUHS93.TTF" id="9_d8okw"]
 [ext_resource type="Script" uid="uid://b1tyaiyl0sht6" path="res://Scenes/Levels/score_label.gd" id="10_asd15"]
 [ext_resource type="PackedScene" uid="uid://pyvgse1m3b7d" path="res://Scenes/3Lives.tscn" id="11_0iqpd"]
+[ext_resource type="Script" uid="uid://t86ev605jg0t" path="res://Scripts/game_over.gd" id="13_irn1k"]
+[ext_resource type="Texture2D" uid="uid://84kyueo3ny10" path="res://Sprites/sprite_black.jpg" id="13_snpdt"]
+[ext_resource type="Script" uid="uid://n2x4vml63a2o" path="res://Scripts/dim_overlay.gd" id="14_snpdt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_irfg1"]
 shader = ExtResource("4_tpkgp")
@@ -73,9 +76,9 @@ script = ExtResource("7_irfg1")
 visible = false
 position = Vector2(143, 373)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+[node name="ScoreLabel" type="Label" parent="UI"]
 offset_left = 499.0
 offset_top = 7.0
 offset_right = 640.0
@@ -92,7 +95,7 @@ text = "Score: "
 horizontal_alignment = 1
 script = ExtResource("10_asd15")
 
-[node name="LivesLabel" type="Label" parent="CanvasLayer"]
+[node name="LivesLabel" type="Label" parent="UI"]
 offset_left = 4.0
 offset_top = 3.0
 offset_right = 145.0
@@ -109,5 +112,15 @@ text = "Lives:"
 horizontal_alignment = 1
 script = ExtResource("9_5sf7f")
 
-[node name="3Lives" parent="CanvasLayer" instance=ExtResource("11_0iqpd")]
+[node name="3Lives" parent="UI" instance=ExtResource("11_0iqpd")]
 position = Vector2(181, 37)
+
+[node name="Transition" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("13_irn1k")
+
+[node name="Dim Overlay" type="Sprite2D" parent="Transition"]
+position = Vector2(835.00006, 488)
+scale = Vector2(4.846877, 6.658633)
+texture = ExtResource("13_snpdt")
+script = ExtResource("14_snpdt")
