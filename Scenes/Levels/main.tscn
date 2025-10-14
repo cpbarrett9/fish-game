@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cstrpg5n8semn"]
+[gd_scene load_steps=12 format=3 uid="uid://cstrpg5n8semn"]
 
 [ext_resource type="Script" uid="uid://pp5ouem56jyh" path="res://Scripts/main.gd" id="1_7i1ub"]
 [ext_resource type="Script" uid="uid://y2n532cv67ei" path="res://Scripts/player_fish.gd" id="1_s0gyx"]
@@ -6,9 +6,8 @@
 [ext_resource type="Script" uid="uid://bnk3bomgijl2y" path="res://Scripts/npc_fish.gd" id="2_yjsus"]
 [ext_resource type="Shader" uid="uid://0p8kqhjo1si0" path="res://Scenes/Levels/main.gdshader" id="4_tpkgp"]
 [ext_resource type="Texture2D" uid="uid://c5srg1m6v0wvf" path="res://Sprites/sprite_stripedFish.png" id="4_w0lsm"]
-[ext_resource type="PackedScene" uid="uid://b5db7dwugwytt" path="res://Scenes/Objects/npc_fish.tscn" id="5_w0lsm"]
 [ext_resource type="Script" uid="uid://bxgsnit0wmyd4" path="res://Scripts/spawner.gd" id="7_irfg1"]
-[ext_resource type="Script" path="res://Scenes/Levels/label.gd" id="9_5sf7f"]
+[ext_resource type="Script" uid="uid://d3g0bku0be5ur" path="res://Scenes/Levels/label.gd" id="9_5sf7f"]
 [ext_resource type="FontFile" uid="uid://bp0uouxxll3gu" path="res://BAUHS93.TTF" id="9_d8okw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_irfg1"]
@@ -61,9 +60,6 @@ script = ExtResource("2_yjsus")
 
 [node name="Spawner" type="Node2D" parent="."]
 script = ExtResource("7_irfg1")
-
-[node name="NPC_Fish2" parent="." instance=ExtResource("5_w0lsm")]
-position = Vector2(143, 373)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

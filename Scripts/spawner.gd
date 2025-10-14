@@ -6,7 +6,8 @@ extends Node2D
 @export var yMax: int = 2010
 @export var minSeconds: float = 0
 @export var maxSeconds: float = 0.5
-@onready var fish_scene = preload("res://Scenes/Objects/npc_fish_small.tscn")
+@onready var fish_scene_small = preload("res://Scenes/Objects/npc_fish_small.tscn")
+@onready var fish_scene_medium = preload("res://Scenes/Objects/npc_fish_medium.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,8 +22,14 @@ func spawn_fish(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
 	var spawnPosition: Vector2
 	var travelSpeed: float
+	var fish_instance
 	var spawnSide: int = randi_range(1, 2)
-	var fish_instance = fish_scene.instantiate()  # Create a new copy of Fish.tscn
+	
+	# SMALL, MEDIUM, OR LARGE?
+	var rng: int = randi_range(1, 10) # Randomly determine size of fish to spawn
+	if rng <= 6: fish_instance = fish_scene_small.instantiate()  # Create a new copy of Fish.tscn
+	else: fish_instance = fish_scene_medium.instantiate()
+	
 	match spawnSide:
 		1: #LEFT:
 			spawnPosition = Vector2(xMin, randf_range(yMin, yMax)) # Spawn on left side

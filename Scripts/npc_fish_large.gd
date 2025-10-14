@@ -3,14 +3,14 @@ extends Area2D
 @onready var sprite = $Sprite2D
 @onready var main: Node2D = get_tree().get_root().get_node("Main")
 @export var travelSpeed: float = 1
-@export var pointValue: int = 1
+@export var pointValue: int = 5
 @onready var tween = create_tween() # For bobbing fish animation
-@export var fish_size: String = "SMALL"
+@export var fish_size: String = "LARGE"
 
 # LOAD ALL POSSIBLE TEXTURES INTO AN ARRAY:
 var fish_textures = [
-	preload("res://Sprites/sprite_fish9.png"),
-	preload("res://Sprites/sprite_fish8.png"),
+	preload("res://Sprites/sprite_fish3.png"),
+	preload("res://Sprites/sprite_fish4.png"),
 ]
 
 func _ready() -> void:

@@ -17,9 +17,10 @@ func _process(delta: float) -> void:
 	position.x += travelSpeed
 
 func _on_body_entered(body: Node) -> void:
+	var node_main: Node = get_node("/root/Main")
 	if body.name == "PlayerFish": # Trigger when player collides with fish
 		print("The player fish touched the NPC fish!")
-		main.score += pointValue
+		node_main.set_score(pointValue)
 		print(str(main.score))
 		queue_free()
 

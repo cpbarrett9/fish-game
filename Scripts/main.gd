@@ -29,5 +29,5 @@ func incrementSize() -> void:
 
 signal score_changed(new_score)
 func set_score(value):
-	score = value
+	score = value+score
 	emit_signal("score_changed", score)
