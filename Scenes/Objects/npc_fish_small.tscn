@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ccumvomofn37d"]
 
 [ext_resource type="Script" uid="uid://dnijhixdp1bbm" path="res://Scripts/npc_fish_small.gd" id="1_i17x1"]
-[ext_resource type="Shader" uid="uid://ba0muahub50y0" path="res://Scenes/Objects/npc_fish_small.gdshader" id="2_34pre"]
+[ext_resource type="Shader" path="res://Scenes/Objects/npc_fish_small.gdshader" id="2_34pre"]
 [ext_resource type="Texture2D" uid="uid://ryu4iwqu4v6h" path="res://Sprites/sprite_fish8.png" id="2_i17x1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpkgp"]

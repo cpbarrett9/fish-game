@@ -1,17 +1,29 @@
 extends CharacterBody2D
 
 @export var speed: float = 5.0  # Higher = faster follow
-@onready var sprite = $Sprite2D 
+@onready var sprite = $Sprite2D
+@onready var size: int = 1
+@onready var node_main: Node = get_node("/root/Main")
 
+@export var scoreToWin = 300
+@export var scoreForLarge = 150
+@export var scoreForMedium = 50
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
+func getSize() -> int:
+	return size
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-
 func _process(delta: float) -> void:
+	
+	var score = node_main.getScore()
+	if score > scoreToWin: print("Game won!")
+	elif score > scoreForLarge: size = 3
+	elif score > 50: scoreForMedium = 2
+	else: size = 1
 	
 	# Get mouse position and float towards it
 	var target = get_global_mouse_position()
@@ -24,7 +36,7 @@ func _process(delta: float) -> void:
 	else:
 		sprite.flip_h = false  # face right
 	
-	var node_main: Node = get_node("/root/Main")
+	
 	
 	
 	if node_main.getScore() >= 20 && node_main.getScore() < 60:

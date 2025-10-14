@@ -2,10 +2,10 @@ extends Area2D
 
 @onready var sprite = $Sprite2D
 @onready var main: Node2D = get_tree().get_root().get_node("Main")
-@export var travelSpeed: float = 1
+@export var travelSpeed: float = randf_range(3,5)
 @export var pointValue: int = 1
 @onready var tween = create_tween() # For bobbing fish animation
-@export var fish_size: String = "SMALL"
+@export var fish_size: int = 1
 
 # LOAD ALL POSSIBLE TEXTURES INTO AN ARRAY:
 var fish_textures = [

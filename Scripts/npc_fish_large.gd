@@ -2,10 +2,12 @@ extends Area2D
 
 @onready var sprite = $Sprite2D
 @onready var main: Node2D = get_tree().get_root().get_node("Main")
-@export var travelSpeed: float = randf_range(1,3)
+@export var travelSpeed: float = 1
 @export var pointValue: int = 10
 @onready var tween = create_tween() # For bobbing fish animation
-@export var fish_size: String = "LARGE"
+@export var fish_size: int = 3
+
+@onready var player = get_tree().get_root().get_node("Main/PlayerFish")
 
 # LOAD ALL POSSIBLE TEXTURES INTO AN ARRAY:
 var fish_textures = [
@@ -30,10 +32,10 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node) -> void:
 	var node_main: Node = get_node("/root/Main")
 	if body.name == "PlayerFish": # Trigger when player collides with fish
-		print("The player fish touched the NPC fish!")
-		node_main.set_score(pointValue)
-		print(str(main.score))
-		queue_free()
+		if fish_size <= player.getSize():
+			node_main.set_score(pointValue)
+			print(str(main.score))
+			queue_free()
 
 func bob() -> void:
 	var tween = create_tween().set_loops()

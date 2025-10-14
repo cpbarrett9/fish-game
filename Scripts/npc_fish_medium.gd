@@ -5,10 +5,11 @@ extends Area2D
 @export var travelSpeed: float = randf_range(2,4)
 @export var pointValue: int = 5
 @onready var tween = create_tween() # For bobbing fish animation
-@export var fish_size: String = "MEDIUM"
+@export var fish_size: int = 2
 
 @export var bob_height: float = 50.0    # vertical amplitude
 @export var bob_speed: float = 2.0      # vertical frequency
+@onready var player = get_tree().get_root().get_node("Main/PlayerFish")
 
 var base_y: float
 var time: float = 0.0
@@ -46,10 +47,11 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node) -> void:
 	var node_main: Node = get_node("/root/Main")
 	if body.name == "PlayerFish": # Trigger when player collides with fish
-		print("The player fish touched the NPC fish!")
-		node_main.set_score(pointValue)
-		print(str(main.score))
-		queue_free()
+		print("The player fish touched a medium fish!")
+		if fish_size <= player.getSize():
+			node_main.set_score(pointValue)
+			print(str(main.score))
+			queue_free()
 
 func bob() -> void:
 	var tween = create_tween().set_loops()
