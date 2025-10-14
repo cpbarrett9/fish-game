@@ -5,8 +5,19 @@ extends Area2D
 @export var travelSpeed: float = 1
 @export var pointValue: int = 5
 @onready var tween = create_tween() # For bobbing fish animation
+@export var fish_size: String = "SMALL"
+
+# LOAD ALL POSSIBLE TEXTURES INTO AN ARRAY:
+var fish_textures = [
+	preload("res://Sprites/sprite_fish9.png"),
+	preload("res://Sprites/sprite_fish8.png"),
+]
 
 func _ready() -> void:
+	# Choose a random texture:
+	randomize()
+	var random_index = randi() % fish_textures.size()
+	sprite.texture = fish_textures[random_index]
 	connect("body_entered", Callable(self, "_on_body_entered"))
 	bob()
 

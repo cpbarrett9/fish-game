@@ -23,3 +23,4 @@ func _process(delta: float) -> void:
 		sprite.flip_h = true   # face left
 	else:
 		sprite.flip_h = false  # face right
+		

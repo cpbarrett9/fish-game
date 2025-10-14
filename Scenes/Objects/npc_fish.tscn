@@ -9,10 +9,10 @@ size = Vector2(90, 73)
 [node name="NPC_Fish" type="Area2D"]
 script = ExtResource("1_korfo")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_jbpgj")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, 0.5)
 shape = SubResource("RectangleShape2D_tpkgp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_jbpgj")
