@@ -1,11 +1,11 @@
 extends Node2D
 
-@export var xMin: int = -10
-@export var xMax: int = 3010
-@export var yMin: int = -10
-@export var yMax: int = 2010
+@export var xMin: int = -30
+@export var xMax: int = 1730
+@export var yMin: int = 30
+@export var yMax: int = 850
 @export var minSeconds: float = 0
-@export var maxSeconds: float = 0.5
+@export var maxSeconds: float = 1
 @onready var fish_scene_small = preload("res://Scenes/Objects/npc_fish_small.tscn")
 @onready var fish_scene_medium = preload("res://Scenes/Objects/npc_fish_medium.tscn")
 @onready var fish_scene_large = preload("res://Scenes/Objects/npc_fish_large.tscn")
