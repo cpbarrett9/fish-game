@@ -2,6 +2,7 @@ extends Node2D
 
 var score: int = 0
 var playerSize: int = 1
+var numLives: int = 3
 
 
 # Called when the node enters the scene tree for the first time.
@@ -20,6 +21,9 @@ func getScore() -> int:
 func getSize() -> int:
 	return playerSize
 	
+func getLives() -> int:
+	return numLives
+	
 func setSize(newSize: int) -> void:
 	playerSize = newSize
 
@@ -29,5 +33,5 @@ func incrementSize() -> void:
 
 signal score_changed(new_score)
 func set_score(value):
-	score = value
+	score = score+value
 	emit_signal("score_changed", score)
