@@ -15,6 +15,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func reload_current_scene():
+	var current_scene = get_tree().current_scene
+	get_tree().change_scene_to_file(current_scene.scene_file_path)
 
 func getScore() -> int:
 	return score

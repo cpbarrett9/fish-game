@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var 		speed: float = 5.0  # Higher = faster follow
+@export var 	speed: float = 5.0  # Higher = faster follow
 @onready var 	sprite = $Sprite2D
 @onready var 	size: int = 1
 @onready var 	node_main: Node = get_node("/root/Main")
@@ -79,7 +79,7 @@ func gameOver():
 		node_main.numLives -= 1
 		
 		if node_main.numLives >= 0: # Repsawn if lives remain
-			await get_tree().create_timer(3).timeout # Wait 3 seconds, then run RESPAWN code:
+			await get_tree().create_timer(2).timeout # Wait 2 seconds, then run RESPAWN code:
 			
 			# Reset score to last threshold achieved:
 			if node_main.getScore() > scoreForLarge : node_main.setScore(scoreForLarge)
@@ -97,4 +97,6 @@ func gameOver():
 			
 		else: # If not, then game over for real
 			transition.doFadeIn()
+			await get_tree().create_timer(3).timeout
+			node_main.reload_current_scene()
 			print("Game Over!")
