@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cstrpg5n8semn"]
+[gd_scene load_steps=19 format=3 uid="uid://cstrpg5n8semn"]
 
 [ext_resource type="Script" uid="uid://pp5ouem56jyh" path="res://Scripts/main.gd" id="1_7i1ub"]
 [ext_resource type="Script" uid="uid://y2n532cv67ei" path="res://Scripts/player_fish.gd" id="1_s0gyx"]
@@ -12,6 +12,7 @@
 [ext_resource type="FontFile" uid="uid://bp0uouxxll3gu" path="res://BAUHS93.TTF" id="9_d8okw"]
 [ext_resource type="Script" uid="uid://b1tyaiyl0sht6" path="res://Scenes/Levels/score_label.gd" id="10_asd15"]
 [ext_resource type="PackedScene" uid="uid://pyvgse1m3b7d" path="res://Scenes/3Lives.tscn" id="11_0iqpd"]
+[ext_resource type="Script" uid="uid://dr7wp4ioa68p2" path="res://Scripts/progress_bar.gd" id="13_5txqb"]
 [ext_resource type="Script" uid="uid://t86ev605jg0t" path="res://Scripts/game_over.gd" id="13_irn1k"]
 [ext_resource type="Texture2D" uid="uid://84kyueo3ny10" path="res://Sprites/sprite_black.jpg" id="13_snpdt"]
 [ext_resource type="Script" uid="uid://n2x4vml63a2o" path="res://Scripts/dim_overlay.gd" id="14_snpdt"]
@@ -80,9 +81,9 @@ position = Vector2(143, 373)
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="ScoreLabel" type="Label" parent="UI"]
-offset_left = 500.0
+offset_left = 1311.0
 offset_top = 13.0
-offset_right = 641.0
+offset_right = 1452.0
 offset_bottom = 78.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -97,10 +98,10 @@ horizontal_alignment = 1
 script = ExtResource("10_asd15")
 
 [node name="LivesLabel" type="Label" parent="UI"]
-offset_left = 5.0
-offset_top = 9.0
-offset_right = 146.0
-offset_bottom = 74.0
+offset_left = 39.0
+offset_top = 14.0
+offset_right = 180.0
+offset_bottom = 79.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 1
@@ -114,7 +115,21 @@ horizontal_alignment = 1
 script = ExtResource("9_5sf7f")
 
 [node name="3Lives" parent="UI" instance=ExtResource("11_0iqpd")]
-position = Vector2(185, 40)
+position = Vector2(239, 45)
+
+[node name="ProgressBar" type="ProgressBar" parent="UI"]
+offset_left = 526.0
+offset_top = 13.0
+offset_right = 1233.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/font = ExtResource("9_d8okw")
+theme_override_font_sizes/font_size = 45
+max_value = 300.0
+rounded = true
+script = ExtResource("13_5txqb")
 
 [node name="Transition" type="CanvasLayer" parent="."]
 visible = false
