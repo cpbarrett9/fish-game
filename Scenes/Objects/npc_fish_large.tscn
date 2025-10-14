@@ -1,18 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://drfh3laf6doli"]
 
-[ext_resource type="Script" uid="uid://b1b8es6lfaquq" path="res://Scripts/npc_fish_medium.gd" id="1_2wpk1"]
-[ext_resource type="Texture2D" uid="uid://cxrpqi1evckqi" path="res://Sprites/sprite_fish7.png" id="2_b41j4"]
+[ext_resource type="Script" uid="uid://djvw3p4n1hb10" path="res://Scripts/npc_fish_large.gd" id="1_2wpk1"]
+[ext_resource type="Texture2D" uid="uid://dagxa8d00o7pt" path="res://Sprites/sprite_fish4.png" id="2_2wpk1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpkgp"]
-size = Vector2(121, 91)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2wpk1"]
+size = Vector2(273.74997, 83.74999)
 
-[node name="NPC_Fish_Medium" type="Area2D"]
+[node name="NPC_Fish_Large" type="Area2D"]
 script = ExtResource("1_2wpk1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_b41j4")
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_2wpk1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -0.5)
-shape = SubResource("RectangleShape2D_tpkgp")
+position = Vector2(-2.4999971, -7.5000014)
+scale = Vector2(0.8, 0.8)
+shape = SubResource("RectangleShape2D_2wpk1")

@@ -8,6 +8,7 @@ extends Node2D
 @export var maxSeconds: float = 0.5
 @onready var fish_scene_small = preload("res://Scenes/Objects/npc_fish_small.tscn")
 @onready var fish_scene_medium = preload("res://Scenes/Objects/npc_fish_medium.tscn")
+@onready var fish_scene_large = preload("res://Scenes/Objects/npc_fish_large.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,9 +28,11 @@ func spawn_fish(seconds: float) -> void:
 	
 	# SMALL, MEDIUM, OR LARGE?
 	var rng: int = randi_range(1, 10) # Randomly determine size of fish to spawn
-	if rng <= 6: fish_instance = fish_scene_small.instantiate()  # Create a new copy of Fish.tscn
-	else: fish_instance = fish_scene_medium.instantiate()
+	if rng <= 5: fish_instance = fish_scene_small.instantiate()  # Create a new copy of Fish.tscn
+	elif rng <= 9: fish_instance = fish_scene_medium.instantiate()
+	else: fish_instance = fish_scene_large.instantiate()
 	
+	# LEFT OR RIGHT?
 	match spawnSide:
 		1: #LEFT:
 			spawnPosition = Vector2(xMin, randf_range(yMin, yMax)) # Spawn on left side
@@ -41,6 +44,8 @@ func spawn_fish(seconds: float) -> void:
 			travelSpeed = -3 #Spawned on right, so travel left
 			fish_instance.get_node("Sprite2D").flip_h = true
 			print("Spawn on right")
+	
+	# SPAWN FISH OF APPROPRIATE TYPE WITH APPROPRIATE PARAMETERS:
 	print("Spawned a fish")
 	fish_instance.travelSpeed = travelSpeed
 	fish_instance.position = spawnPosition
