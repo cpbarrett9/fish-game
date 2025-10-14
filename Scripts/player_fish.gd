@@ -33,7 +33,7 @@ func getSize() -> int:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var score = node_main.getScore() # Update score (from Main node) every frame
+	var score = node_main.getScore() # <- Update score (from Main node) every frame
 	
 	# Check when to increase size when a score thresholds are reached:
 	if score > scoreToWin && !winTriggered: 
@@ -61,7 +61,7 @@ func _process(delta: float) -> void:
 	# Increasing size based on score:
 	var x: float = 1 + ( node_main.getScore()*0.01 )
 	var y: float = 1 + ( node_main.getScore()*0.01 )
-	scale = Vector2(x, y)
+	scale = Vector2(x, y) # <- 1% of score num determines sprite scale
 
 func getPosition() -> Vector2:
 	var x: float = position.x
@@ -72,14 +72,14 @@ func gameOver():
 	# Hide sprite / display message:
 	if !isGameOver:
 		isGameOver = true
-		$CollisionPolygon2D.disabled = true # Disable collision so fish aren't getting eaten during gameover
+		$CollisionPolygon2D.disabled = true # <- Disable collision so fish aren't getting eaten during gameover
 		$CollisionShape2D.disabled = true
 		sprite.visible = false
 		movementEnabled = false
 		node_main.numLives -= 1
 		
-		if node_main.numLives >= 0: # Repsawn if lives remain
-			await get_tree().create_timer(2).timeout # Wait 2 seconds, then run RESPAWN code:
+		if node_main.numLives >= 0: # <- Repsawn if lives remain
+			await get_tree().create_timer(2).timeout # <- Wait 2 seconds, then run RESPAWN code:
 			
 			# Reset score to last threshold achieved:
 			if node_main.getScore() > scoreForLarge : node_main.setScore(scoreForLarge)
@@ -92,10 +92,10 @@ func gameOver():
 			sprite.visible = true
 			movementEnabled = true
 			position = Vector2(577, 325)
-			$"../UI/ScoreLabel".updateScoreManually() # Manually set the label to update to new score
+			$"../UI/ScoreLabel".updateScoreManually() # <- Manually set the label to update to new score
 			isGameOver = false
 			
-		else: # If not, then game over for real
+		else: # <- If not, then game over for real
 			transition.doFadeIn()
 			await get_tree().create_timer(3).timeout
 			node_main.reload_current_scene()
