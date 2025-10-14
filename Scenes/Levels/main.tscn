@@ -39,9 +39,20 @@ material = SubResource("ShaderMaterial_irfg1")
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_w0lsm")
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerFish"]
+polygon = PackedVector2Array(-35, 6, -32, 10, -34, 19, -21, 9, -6, 21, -4, 34, 4, 25, 13, 24, 15, 28, 14, 33, 21, 27, 25, 19, 31, 14, 36, 12, 38, 6, 34, 0, 30, -3, 27, -12, 18, -19, 7, -34, 6, -29, 8, -17, 3, -17, -6, -27, -15, -33, -14, -29, -11, -22, -15, -14, -16, -9, -20, -3, -37, -17, -39, -13, -37, -2, -37, 2)
+
+[node name="CollisionPolygon2DTEST" type="CollisionPolygon2D" parent="PlayerFish"]
+visible = false
+scale = Vector2(0.3, 0.3)
+polygon = PackedVector2Array(-83.33325, 73.333374, -20, 126.66675, 660, 120, 300, -343.33325)
+disabled = true
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerFish"]
+visible = false
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_w0lsm")
+disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="PlayerFish"]
 limit_left = 0

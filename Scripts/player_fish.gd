@@ -4,6 +4,9 @@ extends CharacterBody2D
 @onready var sprite = $Sprite2D
 @onready var size: int = 1
 @onready var node_main: Node = get_node("/root/Main")
+@onready var sprite = $Sprite2D 
+@onready var collisionpolygon = $CollisionPolygon2DTEST
+@onready var characterbody = $CharacterBody2D
 
 @export var scoreToWin = 300
 @export var scoreForLarge = 150

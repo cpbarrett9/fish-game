@@ -1,7 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://drfh3laf6doli"]
+[gd_scene load_steps=6 format=3 uid="uid://drfh3laf6doli"]
 
-[ext_resource type="Script" uid="uid://djvw3p4n1hb10" path="res://Scripts/npc_fish_large.gd" id="1_2wpk1"]
+[ext_resource type="Script" path="res://Scripts/npc_fish_large.gd" id="1_2wpk1"]
 [ext_resource type="Texture2D" uid="uid://dagxa8d00o7pt" path="res://Sprites/sprite_fish4.png" id="2_2wpk1"]
+[ext_resource type="Shader" uid="uid://df2vpcejhpx17" path="res://Scenes/Objects/npc_fish_large.gdshader" id="2_b41j4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8l36j"]
+shader = ExtResource("2_b41j4")
+shader_parameter/contrast = 3.0000001425
+shader_parameter/tint_color = Color(0.85882354, 0.13333334, 0.18039216, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wpk1"]
 size = Vector2(273.74997, 83.74999)
@@ -10,6 +16,7 @@ size = Vector2(273.74997, 83.74999)
 script = ExtResource("1_2wpk1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_8l36j")
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("2_2wpk1")
 

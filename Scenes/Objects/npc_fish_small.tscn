@@ -10,7 +10,7 @@ size = Vector2(79, 22)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rg1yr"]
 shader = ExtResource("2_34pre")
 shader_parameter/contrast = 3.0000001425
-shader_parameter/tint_color = Color(0.06666667, 1, 0.77254903, 1)
+shader_parameter/tint_color = Color(0.06666667, 1, 0.46666667, 1)
 
 [node name="NPC_Fish_Small" type="Area2D"]
 script = ExtResource("1_i17x1")
