@@ -4,13 +4,16 @@ extends CharacterBody2D
 @onready var sprite = $Sprite2D
 @onready var size: int = 1
 @onready var node_main: Node = get_node("/root/Main")
-@onready var sprite = $Sprite2D 
 @onready var collisionpolygon = $CollisionPolygon2DTEST
 @onready var characterbody = $CharacterBody2D
 
+# Scores thresholds triggering sizes + tracking booleans:
 @export var scoreToWin = 300
+var winTriggered: bool = false
 @export var scoreForLarge = 150
+var largeTriggered: bool = false
 @export var scoreForMedium = 50
+var mediumTriggered: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,12 +24,18 @@ func getSize() -> int:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var score = node_main.getScore() # Update score (from Main node) every frame
 	
-	var score = node_main.getScore()
-	if score > scoreToWin: print("Game won!")
-	elif score > scoreForLarge: size = 3
-	elif score > 50: scoreForMedium = 2
-	else: size = 1
+	# Check when to increase size when a score thresholds are reached:
+	if score > scoreToWin && !winTriggered: 
+		print("Game won!")
+		winTriggered = true
+	if score > scoreForLarge && !largeTriggered: 
+		size = 3 #3 = LARGE
+		largeTriggered = true
+	if score > scoreForMedium && !mediumTriggered: 
+		size = 2 #2 = SMALL
+		mediumTriggered = true
 	
 	# Get mouse position and float towards it
 	var target = get_global_mouse_position()
@@ -39,9 +48,7 @@ func _process(delta: float) -> void:
 	else:
 		sprite.flip_h = false  # face right
 	
-	
-	
-	
+	# Increasing size based on score:
 	if node_main.getScore() >= 20 && node_main.getScore() < 60:
 		growSize(1.2, 1.2)
 		node_main.incrementSize

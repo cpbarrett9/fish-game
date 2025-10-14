@@ -49,7 +49,7 @@ func _on_body_entered(body: Node) -> void:
 	if body.name == "PlayerFish": # Trigger when player collides with fish
 		if fish_size <= player.getSize():
 			node_main.set_score(pointValue)
-			print(str(main.score))
+			#print(str(main.score))
 			queue_free()
 
 func bob() -> void:

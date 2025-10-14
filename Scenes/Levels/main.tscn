@@ -68,6 +68,7 @@ script = ExtResource("2_yjsus")
 script = ExtResource("7_irfg1")
 
 [node name="NPC_Fish2" parent="." instance=ExtResource("5_w0lsm")]
+visible = false
 position = Vector2(143, 373)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
