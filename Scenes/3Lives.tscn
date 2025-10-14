@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cuc7y1oasfxu6"]
+[gd_scene load_steps=5 format=3 uid="uid://pyvgse1m3b7d"]
 
 [ext_resource type="Texture2D" uid="uid://chp4os0grmdv7" path="res://Sprites/orange fish.png" id="1_sqhc6"]
-[ext_resource type="Script" uid="uid://xbtg85ooa4hl" path="res://Scenes/orange_fish.gd" id="2_0v1th"]
-[ext_resource type="Script" uid="uid://c8dp5o48btira" path="res://Scenes/orange_fish_3.gd" id="2_hjv8j"]
-[ext_resource type="Script" uid="uid://yywo6t1t7wf0" path="res://Scenes/orange_fish_2.gd" id="3_2rnms"]
+[ext_resource type="Script" path="res://Scenes/orange_fish.gd" id="2_0v1th"]
+[ext_resource type="Script" path="res://Scenes/orange_fish_3.gd" id="2_hjv8j"]
+[ext_resource type="Script" path="res://Scenes/orange_fish_2.gd" id="3_2rnms"]
 
 [node name="3Lives" type="Node2D"]
 

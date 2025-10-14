@@ -10,8 +10,8 @@
 [ext_resource type="Script" uid="uid://bxgsnit0wmyd4" path="res://Scripts/spawner.gd" id="7_irfg1"]
 [ext_resource type="Script" uid="uid://d3g0bku0be5ur" path="res://Scenes/Levels/label.gd" id="9_5sf7f"]
 [ext_resource type="FontFile" uid="uid://bp0uouxxll3gu" path="res://BAUHS93.TTF" id="9_d8okw"]
-[ext_resource type="Script" path="res://Scenes/Levels/score_label.gd" id="10_asd15"]
-[ext_resource type="PackedScene" path="res://Scenes/3Lives.tscn" id="11_0iqpd"]
+[ext_resource type="Script" uid="uid://b1tyaiyl0sht6" path="res://Scenes/Levels/score_label.gd" id="10_asd15"]
+[ext_resource type="PackedScene" uid="uid://pyvgse1m3b7d" path="res://Scenes/3Lives.tscn" id="11_0iqpd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_irfg1"]
 shader = ExtResource("4_tpkgp")
@@ -55,10 +55,12 @@ shape = SubResource("RectangleShape2D_w0lsm")
 disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="PlayerFish"]
+zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = 0
 limit_right = 1696
 limit_bottom = 951
+position_smoothing_enabled = true
 
 [node name="NPC_Fish" type="Area2D" parent="."]
 position = Vector2(350, 400)

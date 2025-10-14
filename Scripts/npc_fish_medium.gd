@@ -51,6 +51,8 @@ func _on_body_entered(body: Node) -> void:
 			node_main.set_score(pointValue)
 			#print(str(main.score))
 			queue_free()
+		else:
+			player.gameOver()
 
 func bob() -> void:
 	var tween = create_tween().set_loops()

@@ -17,6 +17,9 @@ func _process(delta: float) -> void:
 
 func getScore() -> int:
 	return score
+
+func setScore(inputScore: int) -> void:
+	score = inputScore
 	
 func getSize() -> int:
 	return playerSize
