@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export var speed: float = 5.0  # Higher = faster follow
 @onready var sprite = $Sprite2D 
+@onready var collisionpolygon = $CollisionPolygon2DTEST
+@onready var characterbody = $CharacterBody2D
 
 
 # Called when the node enters the scene tree for the first time.
