@@ -19,7 +19,7 @@
 [ext_resource type="Script" uid="uid://dr7wp4ioa68p2" path="res://Scripts/progress_bar.gd" id="13_5txqb"]
 [ext_resource type="Material" uid="uid://qukk0lrnb7t1" path="res://Materials/medium_fish_shader.tres" id="13_g8fqy"]
 [ext_resource type="Texture2D" uid="uid://84kyueo3ny10" path="res://Sprites/sprite_black.jpg" id="13_snpdt"]
-[ext_resource type="Script" path="res://Scripts/dim_overlay.gd" id="14_snpdt"]
+[ext_resource type="Script" uid="uid://n2x4vml63a2o" path="res://Scripts/dim_overlay.gd" id="14_snpdt"]
 [ext_resource type="Material" uid="uid://bd8k8u82ywpjp" path="res://Materials/large_fish_shader.tres" id="15_0w7p8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w0lsm"]
@@ -191,7 +191,6 @@ theme_override_fonts/font = ExtResource("9_d8okw")
 theme_override_font_sizes/font_size = 90
 text = "You Win"
 
-[node name="Transition" type="CanvasLayer" parent="."]
 [node name="Fader" type="Sprite2D" parent="UI"]
 visible = false
 top_level = true
@@ -199,3 +198,5 @@ position = Vector2(835.00006, 488)
 scale = Vector2(4.846877, 6.658633)
 texture = ExtResource("13_snpdt")
 script = ExtResource("14_snpdt")
+
+[node name="Transition" type="CanvasLayer" parent="."]
