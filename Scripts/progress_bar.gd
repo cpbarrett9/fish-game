@@ -9,7 +9,6 @@ func _ready() -> void:
 	max_value = player.scoreToWin
 	
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var playerScore: int = main_node.getScore()

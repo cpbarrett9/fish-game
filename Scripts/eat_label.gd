@@ -14,7 +14,7 @@ var hasReachedLarge: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	medFish.material = null
+	medFish.material = null # <- Null material = no color
 	largeFish.material = null
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,9 +27,9 @@ func _process(delta: float) -> void:
 		activateLargeFish()
 		thoughtBubble.appear()
 		hasReachedLarge = true
-	
+
+# Adding materials/shaders to fish (colors them in)
 func activateMedFish() -> void:
 	medFish.material = medFishShader
-
 func activateLargeFish() -> void:
 	largeFish.material = largeFishShader

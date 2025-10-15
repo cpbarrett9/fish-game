@@ -51,6 +51,7 @@ func _process(delta: float) -> void:
 		Engine.time_scale = 1
 		get_tree().change_scene_to_file("res://Scenes/Levels/MainMenu.tscn")
 	
+	# Increasing size when score thresholds are reached:
 	if score >= scoreForLarge && !largeTriggered: 
 		size = 3 #3 = LARGE
 		largeTriggered = true
@@ -75,7 +76,7 @@ func _process(delta: float) -> void:
 	var y: float = 1 + ( node_main.getScore()*0.01 )
 	scale = Vector2(x, y) # <- 1% of score num determines sprite scale
 
-func getPosition() -> Vector2:
+func getPosition() -> Vector2: # <- Forget what script this is for. I might've abandoned it
 	var x: float = position.x
 	var y: float = position.y
 	return Vector2(x,y)
@@ -93,8 +94,6 @@ func gameOver():
 	if !isGameOver:
 		get_node("/root/Main/Audio/BiteSounds").play()
 		isGameOver = true
-		#$CollisionShape2DCircle.disabled = true # <- Disable collision so fish aren't getting eaten during gameover
-		#$CollisionShape2D.disabled = true
 		sprite.visible = false
 		movementEnabled = false
 		node_main.numLives -= 1
@@ -108,8 +107,6 @@ func gameOver():
 			else: node_main.setScore(0)
 			
 			# Restore position and re-enable stuff
-			#$CollisionPolygon2D.disabled = false
-			#$CollisionShape2D.disabled = false
 			sprite.visible = true
 			movementEnabled = true
 			position = Vector2(577, 325)
@@ -126,6 +123,4 @@ func gameOver():
 			get_tree().change_scene_to_file("res://Scenes/Levels/MainMenu.tscn")
 
 func getIsGameOver() -> bool:
-	return isGameOver
-	
-	
+	return isGameOver # <- For disabling eating when player's dead in npc_fish scripts

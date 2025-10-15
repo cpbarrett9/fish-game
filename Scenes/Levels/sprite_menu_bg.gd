@@ -1,5 +1,6 @@
 extends Sprite2D
 
+# This is the waves background on the menu. It moves back and forward
 
 func _ready() -> void:
 	bob()
@@ -8,7 +9,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func bob() -> void:
+func bob() -> void: # Move left and right on tween animation (AI wrote this part)
 	var tween = create_tween().set_loops()
 	var up_x = position.x + 30
 	var down_x = position.x - 30

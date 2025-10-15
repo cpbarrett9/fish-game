@@ -1,5 +1,6 @@
 extends Sprite2D
 
+# I think I attached this to the fish sprites in the main menu but I'm not sure
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

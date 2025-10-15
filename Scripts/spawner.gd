@@ -21,13 +21,11 @@ func _process(delta: float) -> void:
 
 func spawn_fish(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
-	var spawnPosition: Vector2
+	var spawnPosition: Vector2 # <- Defining variables for later
 	var travelSpeed: float
 	var fish_instance
 	var spawnSide: int = randi_range(1, 2)
-	
 	var node_PlayerFish = get_node("/root/Main/PlayerFish")
-	#target_node.your_function_name()
 	
 	if node_PlayerFish.getSize() == 1:
 		# SMALL, MEDIUM, OR LARGE?
@@ -60,5 +58,5 @@ func spawn_fish(seconds: float) -> void:
 	# SPAWN FISH OF APPROPRIATE TYPE WITH APPROPRIATE PARAMETERS:
 	fish_instance.travelSpeed = travelSpeed
 	fish_instance.position = spawnPosition
-	add_child(fish_instance)                       # Add it to the current scene
-	spawn_fish(randf_range(minSeconds, maxSeconds)) # Spawns fish after 1-10 seconds (random)
+	add_child(fish_instance)                       # <- Add it to the current scene
+	spawn_fish(randf_range(minSeconds, maxSeconds)) # <- Spawns fish after 1-10 seconds (random)

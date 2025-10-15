@@ -1,5 +1,7 @@
 extends Area2D
 
+# OBSOLETE - But don't delete in case it breaks something
+
 @onready var sprite = $Sprite2D
 @onready var main: Node2D = get_tree().get_root().get_node("Main")
 @export var travelSpeed: float = 1

@@ -1,5 +1,6 @@
 extends "res://Scripts/npc_fish_large.gd"
 
+# OBSOLETE - but don't delete in case it breaks something
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -1,5 +1,7 @@
 extends Sprite2D
 
+# Fades blank black sprite in/out for smooth(ish) transitions
+
 var fadingIn: bool = false
 var fadingOut: bool = false
 

@@ -1,5 +1,7 @@
 extends Node2D
 
+# Plays win sound and fades BGM on win
+
 @onready var bgmGame = $BgmGame
 var fadeBGM: bool = false
 @onready var sfx_win = $SfxWin
@@ -8,7 +10,6 @@ var fadeBGM: bool = false
 func _ready() -> void:
 	#playWin()
 	pass
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

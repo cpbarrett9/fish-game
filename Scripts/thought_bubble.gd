@@ -14,15 +14,14 @@ func _ready() -> void:
 	await get_tree().create_timer(3).timeout
 	appear()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if fadein && modulate.a < 1: modulate.a += 0.1
+	if fadein && modulate.a < 1: modulate.a += 0.1 # <- Add/remove opacity if we're fading in/out
 	if fadeout && modulate.a > 0: modulate.a -= 0.1
 	
 func appear() -> void:
-	if player.getSize() == 1:
-		spr_greenFish.visible = true
+	if player.getSize() == 1: # <- Change visibility of fish sprite depending on our
+		spr_greenFish.visible = true # size/what we're alllowed to eat
 		spr_redFish.visible = false
 		spr_yellowFish.visible = false
 	elif player.getSize() == 2:
@@ -33,6 +32,8 @@ func appear() -> void:
 		spr_greenFish.visible = false
 		spr_redFish.visible = true
 		spr_yellowFish.visible = false
+	
+	# Play idea sound + Fade in/out over 3 seconds
 	sfx_idea.play()
 	fadein = true
 	await get_tree().create_timer(3).timeout

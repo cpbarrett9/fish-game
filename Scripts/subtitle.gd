@@ -7,13 +7,12 @@ var blink: bool = false
 func _ready() -> void:
 	_doBlink()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if opaque: modulate.a = 1
+	if opaque: modulate.a = 1 # <- Show opague or traslucent depending on doBlink func
 	elif blink: modulate.a = 0.6
 
-func _doBlink() -> void:
+func _doBlink() -> void: # <- Turn blink/opague settings on/off every half second
 	opaque = true
 	blink = false
 	await get_tree().create_timer(0.5).timeout
