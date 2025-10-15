@@ -6,8 +6,8 @@ extends CharacterBody2D
 @onready var 	node_main: Node = get_node("/root/Main")
 @onready var 	collisionpolygon = $CollisionShape2DCircle
 @onready var 	characterbody = $CharacterBody2D
-@onready var 	transition = $"../Transition"
 @onready var 	scoreLabel = $"../UI/ProgressBar/ScoreLabel"
+@onready var		fader = $"../UI/Fader"
 
 # Scores thresholds triggering sizes + tracking booleans:
 @export var scoreToWin = 250
@@ -106,7 +106,8 @@ func gameOver():
 			toggleInvincible(2)
 			
 		else: # <- If not, then game over for real
-			transition.doFadeIn()
-			await get_tree().create_timer(3).timeout
+			await get_tree().create_timer(2).timeout
+			fader.fadeOut()
+			await get_tree().create_timer(1).timeout
 			node_main.reload_current_scene()
 			print("Game Over!")
