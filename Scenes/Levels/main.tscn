@@ -242,7 +242,7 @@ parameters/looping = true
 [node name="BiteSounds" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("22_g8fqy")
 volume_db = -2.465
-bus = &"SFX"
+bus = &"Bites"
 
 [node name="SfxIdea" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("25_ksskw")

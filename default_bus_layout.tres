@@ -1,6 +1,13 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://c3m2u3nbljant"]
+[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://c3m2u3nbljant"]
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_j3pel"]
+resource_name = "Reverb"
+room_size = 0.28
+damping = 0.74
+wet = 0.16
 
 [resource]
+bus/0/volume_db = -3.8857892
 bus/1/name = &"SFX"
 bus/1/solo = false
 bus/1/mute = false
@@ -13,3 +20,11 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 1.9515171
 bus/2/send = &"Master"
+bus/3/name = &"Bites"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"Master"
+bus/3/effect/0/effect = SubResource("AudioEffectReverb_j3pel")
+bus/3/effect/0/enabled = true
