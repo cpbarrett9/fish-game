@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://88vl1s8vyqdu"]
+[gd_scene load_steps=23 format=3 uid="uid://88vl1s8vyqdu"]
 
 [ext_resource type="Script" uid="uid://crxmip1k7hmna" path="res://Scripts/main_menu.gd" id="1_0t1wx"]
 [ext_resource type="Texture2D" uid="uid://84kyueo3ny10" path="res://Sprites/sprite_black.jpg" id="1_mke16"]
@@ -14,10 +14,22 @@
 [ext_resource type="Material" uid="uid://dkcj2cadq4nru" path="res://Materials/small_fish_shader.tres" id="7_2xmls"]
 [ext_resource type="Material" uid="uid://qukk0lrnb7t1" path="res://Materials/medium_fish_shader.tres" id="7_lm8k6"]
 [ext_resource type="Texture2D" uid="uid://byfkdb2iaac1v" path="res://Sprites/sprite_fish9.png" id="8_lm8k6"]
+[ext_resource type="Shader" uid="uid://crg8p4xvyb0xa" path="res://Scenes/Levels/MainMenuLongFish.gdshader" id="12_ff0ax"]
 [ext_resource type="Script" uid="uid://dwjxamwv06f1q" path="res://Scripts/subtitle.gd" id="12_lm8k6"]
+[ext_resource type="Shader" uid="uid://bpjd5c8gqypdl" path="res://Scenes/Levels/MainMenuTriton.gdshader" id="15_cva66"]
 [ext_resource type="AudioStream" uid="uid://ce2g2slf1mou6" path="res://Audio/Sound/Splash Sound Effect.ogg" id="15_kv2kq"]
 [ext_resource type="AudioStream" uid="uid://dfnmfwsahr54h" path="res://Audio/Music/bgm_menu.ogg" id="16_xp410"]
 [ext_resource type="AudioStream" uid="uid://cw67iswjm3x6x" path="res://Audio/Sound/sfx_waves.ogg" id="17_xask1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ff0ax"]
+shader = ExtResource("12_ff0ax")
+shader_parameter/contrast = 2.70000012825
+shader_parameter/tint_color = Color(1, 0.36556464, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a5h8v"]
+shader = ExtResource("15_cva66")
+shader_parameter/contrast = 2.70000012825
+shader_parameter/tint_color = Color(1, 1, 1, 1)
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_0t1wx")
@@ -67,6 +79,7 @@ texture = ExtResource("8_lm8k6")
 position = Vector2(359, 673.5)
 
 [node name="MenuFish5" parent="UI/Images" instance=ExtResource("4_cwjnk")]
+material = SubResource("ShaderMaterial_ff0ax")
 position = Vector2(-67, 674)
 texture = ExtResource("5_cwjnk")
 
@@ -107,6 +120,7 @@ text = "FISH GAME"
 horizontal_alignment = 1
 
 [node name="SpriteKing" type="Sprite2D" parent="UI/Title"]
+material = SubResource("ShaderMaterial_a5h8v")
 position = Vector2(13, 231)
 scale = Vector2(1.6065394, 1.6065394)
 texture = ExtResource("3_d2tbo")
