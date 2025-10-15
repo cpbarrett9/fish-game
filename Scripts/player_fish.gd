@@ -41,10 +41,11 @@ func _process(delta: float) -> void:
 		var winGame: Node = get_node("/root/Main/UI/YouWin")
 		winGame.visible = true
 		winTriggered = true
-		movementEnabled = false
-		await get_tree().create_timer(3).timeout
+		Engine.time_scale = 0.3 
+		await get_tree().create_timer(0.6).timeout
 		fader.fadeOut()
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(0.3).timeout
+		Engine.time_scale = 1
 		node_main.reload_current_scene()
 	
 	if score > scoreForLarge && !largeTriggered: 
