@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var 	collisionpolygon = $CollisionPolygon2DTEST
 @onready var 	characterbody = $CharacterBody2D
 @onready var 	transition = $"../Transition"
+@onready var 	scoreLabel = $"../UI/ProgressBar/ScoreLabel"
 
 # Scores thresholds triggering sizes + tracking booleans:
 @export var scoreToWin = 300
@@ -100,7 +101,7 @@ func gameOver():
 			sprite.visible = true
 			movementEnabled = true
 			position = Vector2(577, 325)
-			$"../UI/ScoreLabel".updateScoreManually() # <- Manually set the label to update to new score
+			scoreLabel.updateScoreManually() # <- Manually set the label to update to new score
 			isGameOver = false
 			toggleInvincible(2)
 			

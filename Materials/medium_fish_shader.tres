@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://qukk0lrnb7t1"]
+
+[ext_resource type="Shader" path="res://Scenes/Objects/npc_fish_medium.gdshader" id="1_vfmr2"]
+
+[resource]
+shader = ExtResource("1_vfmr2")
+shader_parameter/contrast = 3.0000001425
+shader_parameter/tint_color = Color(1, 1, 0, 1)

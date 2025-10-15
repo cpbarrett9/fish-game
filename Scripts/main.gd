@@ -54,3 +54,4 @@ signal score_changed(new_score)
 func set_score(value):
 	score = score+value
 	emit_signal("score_changed", score)
+	
