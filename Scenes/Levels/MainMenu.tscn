@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://88vl1s8vyqdu"]
+[gd_scene load_steps=19 format=3 uid="uid://88vl1s8vyqdu"]
 
 [ext_resource type="Script" uid="uid://crxmip1k7hmna" path="res://Scripts/main_menu.gd" id="1_0t1wx"]
 [ext_resource type="Texture2D" uid="uid://84kyueo3ny10" path="res://Sprites/sprite_black.jpg" id="1_mke16"]
 [ext_resource type="FontFile" uid="uid://bp0uouxxll3gu" path="res://BAUHS93.TTF" id="2_koonp"]
 [ext_resource type="Texture2D" uid="uid://damq2xhi8wqc2" path="res://Sprites/sprite_king.png" id="3_d2tbo"]
 [ext_resource type="PackedScene" uid="uid://bmuc6m10yfipd" path="res://Scenes/Objects/menu_fish.tscn" id="4_cwjnk"]
+[ext_resource type="Script" uid="uid://bevok52ojqe1r" path="res://Scenes/Levels/sprite_menu_bg.gd" id="4_txiv3"]
 [ext_resource type="Material" uid="uid://bd8k8u82ywpjp" path="res://Materials/large_fish_shader.tres" id="5_2xmls"]
 [ext_resource type="Texture2D" uid="uid://dagxa8d00o7pt" path="res://Sprites/sprite_fish4.png" id="5_82l7r"]
 [ext_resource type="Texture2D" uid="uid://dvl314jo85ioe" path="res://Sprites/sprite_fish10.png" id="5_cwjnk"]
@@ -14,6 +15,9 @@
 [ext_resource type="Material" uid="uid://qukk0lrnb7t1" path="res://Materials/medium_fish_shader.tres" id="7_lm8k6"]
 [ext_resource type="Texture2D" uid="uid://byfkdb2iaac1v" path="res://Sprites/sprite_fish9.png" id="8_lm8k6"]
 [ext_resource type="Script" uid="uid://dwjxamwv06f1q" path="res://Scripts/subtitle.gd" id="12_lm8k6"]
+[ext_resource type="AudioStream" uid="uid://ce2g2slf1mou6" path="res://Audio/Sound/Splash Sound Effect.ogg" id="15_kv2kq"]
+[ext_resource type="AudioStream" uid="uid://dfnmfwsahr54h" path="res://Audio/Music/bgm_menu.ogg" id="16_xp410"]
+[ext_resource type="AudioStream" uid="uid://cw67iswjm3x6x" path="res://Audio/Sound/sfx_waves.ogg" id="17_xask1"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_0t1wx")
@@ -36,9 +40,10 @@ position_smoothing_enabled = true
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="SpriteMenuBg" type="Sprite2D" parent="UI"]
-position = Vector2(808.99994, 451.99997)
-scale = Vector2(2.8641975, 2.8641977)
+position = Vector2(809, 405.00003)
+scale = Vector2(3.0241973, 3.0241978)
 texture = ExtResource("6_cwjnk")
+script = ExtResource("4_txiv3")
 
 [node name="Images" type="Node2D" parent="UI"]
 position = Vector2(50, 0)
@@ -105,3 +110,24 @@ horizontal_alignment = 1
 position = Vector2(13, 231)
 scale = Vector2(1.6065394, 1.6065394)
 texture = ExtResource("3_d2tbo")
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="sfx_splash" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("15_kv2kq")
+volume_db = 6.271
+panning_strength = 0.0
+bus = &"SFX"
+
+[node name="BgmMenu" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("16_xp410")
+volume_db = -8.931
+autoplay = true
+bus = &"BGM"
+parameters/looping = true
+
+[node name="sfx_waves" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("17_xask1")
+volume_db = -24.151
+autoplay = true
+parameters/looping = true
