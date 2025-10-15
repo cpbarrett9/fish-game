@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var 	characterbody = $CharacterBody2D
 @onready var 	scoreLabel = $"../UI/ProgressBar/ScoreLabel"
 @onready var		fader = $"../UI/Fader"
+@onready var 	biteSounds = $"../Audio/BiteSounds"
 
 # Scores thresholds triggering sizes + tracking booleans:
 @export var scoreToWin = 300
@@ -27,7 +28,6 @@ var isGameOver: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#toggleInvincible(2)
 	pass
 
 func getSize() -> int:
@@ -89,6 +89,7 @@ func toggleInvincible(seconds: int):
 func gameOver():
 	# Hide sprite / display message:
 	if !isGameOver:
+		get_node("/root/Main/Audio/BiteSounds").play()
 		isGameOver = true
 		#$CollisionShape2DCircle.disabled = true # <- Disable collision so fish aren't getting eaten during gameover
 		#$CollisionShape2D.disabled = true

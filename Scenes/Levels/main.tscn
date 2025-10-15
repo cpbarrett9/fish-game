@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cstrpg5n8semn"]
+[gd_scene load_steps=24 format=3 uid="uid://cstrpg5n8semn"]
 
 [ext_resource type="Script" uid="uid://pp5ouem56jyh" path="res://Scripts/main.gd" id="1_7i1ub"]
 [ext_resource type="Script" uid="uid://y2n532cv67ei" path="res://Scripts/player_fish.gd" id="1_s0gyx"]
@@ -19,6 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://84kyueo3ny10" path="res://Sprites/sprite_black.jpg" id="13_snpdt"]
 [ext_resource type="Script" uid="uid://n2x4vml63a2o" path="res://Scripts/dim_overlay.gd" id="14_snpdt"]
 [ext_resource type="Material" uid="uid://bd8k8u82ywpjp" path="res://Materials/large_fish_shader.tres" id="15_0w7p8"]
+[ext_resource type="AudioStream" uid="uid://c2yt1rnaokiio" path="res://Audio/Music/bgm_game.ogg" id="20_d3pra"]
+[ext_resource type="AudioStream" uid="uid://b5odq8qmcaphy" path="res://Audio/Sound/sfx_underwater.ogg" id="21_rrvv5"]
+[ext_resource type="AudioStream" uid="uid://l3o46eus21sd" path="res://Audio/Sound/Bite Sounds/bite_sounds.tres" id="22_g8fqy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w0lsm"]
 size = Vector2(88, 70)
@@ -32,7 +35,7 @@ scale = Vector2(1.1408721, 1.1413174)
 texture = ExtResource("2_w0lsm")
 
 [node name="PlayerFish" type="CharacterBody2D" parent="."]
-position = Vector2(577, 325)
+position = Vector2(821, 249)
 script = ExtResource("1_s0gyx")
 speed = 3.0
 
@@ -189,4 +192,21 @@ scale = Vector2(4.846877, 6.658633)
 texture = ExtResource("13_snpdt")
 script = ExtResource("14_snpdt")
 
-[node name="Transition" type="CanvasLayer" parent="."]
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="BgmGame" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("20_d3pra")
+volume_db = -14.787
+bus = &"BGM"
+parameters/looping = true
+
+[node name="SfxUnderwater" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("21_rrvv5")
+volume_db = -6.9
+autoplay = true
+parameters/looping = true
+
+[node name="BiteSounds" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("22_g8fqy")
+volume_db = -2.465
+bus = &"SFX"

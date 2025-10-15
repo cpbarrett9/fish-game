@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://mql1dncfiodc"
+path="res://.godot/imported/bite10.ogg-ca7125a6cf7f3507212e8f08ad272393.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/Sound/Bite Sounds/bite10.ogg"
+dest_files=["res://.godot/imported/bite10.ogg-ca7125a6cf7f3507212e8f08ad272393.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -6,6 +6,8 @@ var numLives: int = 3
 var invincible: bool = false
 @onready var transition = $Transition
 @onready var fader = $UI/Fader
+@onready var bgm = $Audio/BgmGame
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#transition.doFadeOut()
@@ -13,9 +15,10 @@ func _ready() -> void:
 	loseGame.visible = false
 	var winGame: Node = get_node("/root/Main/UI/YouWin")
 	winGame.visible = false
-	pass # Replace with function body.
-
 	fader.fadeIn()
+	await get_tree().create_timer(0.5).timeout
+	bgm.stream.loop = true
+	bgm.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

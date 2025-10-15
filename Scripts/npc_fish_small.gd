@@ -32,7 +32,7 @@ func _on_body_entered(body: Node) -> void:
 	var node_main: Node = get_node("/root/Main")
 	if body.name == "PlayerFish": # Trigger when player collides with fish
 		node_main.set_score(pointValue)
-		#print(str(main.score))
+		get_node("/root/Main/Audio/BiteSounds").play()
 		queue_free()
 
 func bob() -> void:

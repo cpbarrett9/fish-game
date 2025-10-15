@@ -1,0 +1,27 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=12 format=3 uid="uid://l3o46eus21sd"]
+
+[ext_resource type="AudioStream" uid="uid://pd3ef7u3vcpi" path="res://Audio/Sound/Bite Sounds/bite1.ogg" id="1_sj16o"]
+[ext_resource type="AudioStream" uid="uid://cps7o3yujci28" path="res://Audio/Sound/Bite Sounds/bite2.ogg" id="2_di35c"]
+[ext_resource type="AudioStream" uid="uid://bt0xfbu4p0u6y" path="res://Audio/Sound/Bite Sounds/bite11.ogg" id="3_1r34f"]
+[ext_resource type="AudioStream" uid="uid://c7s7gp5c482kl" path="res://Audio/Sound/Bite Sounds/bite3.ogg" id="4_1bo5q"]
+[ext_resource type="AudioStream" uid="uid://4xqau60udwly" path="res://Audio/Sound/Bite Sounds/bite4.ogg" id="5_r3k40"]
+[ext_resource type="AudioStream" uid="uid://buuhomqa0kllp" path="res://Audio/Sound/Bite Sounds/bite5.ogg" id="6_7bevk"]
+[ext_resource type="AudioStream" uid="uid://b1us4g62crp08" path="res://Audio/Sound/Bite Sounds/bite6.ogg" id="7_5a8fj"]
+[ext_resource type="AudioStream" uid="uid://bmi2j6qs51kvr" path="res://Audio/Sound/Bite Sounds/bite7.ogg" id="8_pcya5"]
+[ext_resource type="AudioStream" uid="uid://lwwopvd8f3u1" path="res://Audio/Sound/Bite Sounds/bite8.ogg" id="9_uhvt2"]
+[ext_resource type="AudioStream" uid="uid://d4fgj64br21c8" path="res://Audio/Sound/Bite Sounds/bite9.ogg" id="10_wedvn"]
+[ext_resource type="AudioStream" uid="uid://mql1dncfiodc" path="res://Audio/Sound/Bite Sounds/bite10.ogg" id="11_c2hpu"]
+
+[resource]
+streams_count = 11
+stream_0/stream = ExtResource("1_sj16o")
+stream_1/stream = ExtResource("2_di35c")
+stream_2/stream = ExtResource("4_1bo5q")
+stream_3/stream = ExtResource("5_r3k40")
+stream_4/stream = ExtResource("6_7bevk")
+stream_5/stream = ExtResource("7_5a8fj")
+stream_6/stream = ExtResource("8_pcya5")
+stream_7/stream = ExtResource("9_uhvt2")
+stream_8/stream = ExtResource("10_wedvn")
+stream_9/stream = ExtResource("11_c2hpu")
+stream_10/stream = ExtResource("3_1r34f")

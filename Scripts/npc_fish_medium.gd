@@ -50,7 +50,7 @@ func _on_body_entered(body: Node) -> void:
 	if body.name == "PlayerFish": # Trigger when player collides with fish
 		if fish_size <= player.getSize():
 			node_main.set_score(pointValue)
-			#print(str(main.score))
+			get_node("/root/Main/Audio/BiteSounds").play()
 			queue_free()
 		elif !node_main.isInvincible():
 			player.gameOver()
