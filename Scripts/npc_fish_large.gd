@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node) -> void:
 	var node_main: Node = get_node("/root/Main")
-	if body.name == "PlayerFish": # Trigger when player collides with fish
+	if body.name == "PlayerFish" && !player.getIsGameOver(): # Trigger when player collides with fish
 		if fish_size <= player.getSize():
 			node_main.set_score(pointValue)
 			get_node("/root/Main/Audio/BiteSounds").play()

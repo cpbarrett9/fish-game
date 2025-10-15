@@ -6,10 +6,10 @@ extends Area2D
 @export var pointValue: int = 5
 @onready var tween = create_tween() # For bobbing fish animation
 @export var fish_size: int = 2
+@onready var player = get_tree().get_root().get_node("Main/PlayerFish")
 
 @export var bob_height: float = 50.0    # vertical amplitude
 @export var bob_speed: float = 2.0      # vertical frequency
-@onready var player = get_tree().get_root().get_node("Main/PlayerFish")
 
 var base_y: float
 var time: float = 0.0
@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node) -> void:
 	var node_main: Node = get_node("/root/Main")
-	if body.name == "PlayerFish": # Trigger when player collides with fish
+	if body.name == "PlayerFish" && !player.getIsGameOver(): # Trigger when player collides with fish
 		if fish_size <= player.getSize():
 			node_main.set_score(pointValue)
 			get_node("/root/Main/Audio/BiteSounds").play()

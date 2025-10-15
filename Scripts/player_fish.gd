@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var 	collisionpolygon = $CollisionShape2DCircle
 @onready var 	characterbody = $CharacterBody2D
 @onready var 	scoreLabel = $"../UI/ProgressBar/ScoreLabel"
-@onready var		fader = $"../UI/Fader"
+@onready var	fader = $"../UI/Fader"
 @onready var 	biteSounds = $"../Audio/BiteSounds"
 @onready var 	audio = $"../Audio"
 
@@ -124,3 +124,8 @@ func gameOver():
 			fader.fadeOut()
 			await get_tree().create_timer(1).timeout
 			get_tree().change_scene_to_file("res://Scenes/Levels/MainMenu.tscn")
+
+func getIsGameOver() -> bool:
+	return isGameOver
+	
+	

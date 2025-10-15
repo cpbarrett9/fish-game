@@ -6,7 +6,6 @@ extends Area2D
 @export var pointValue: int = 10
 @onready var tween = create_tween() # For bobbing fish animation
 @export var fish_size: int = 3
-
 @onready var player = get_tree().get_root().get_node("Main/PlayerFish")
 
 # LOAD ALL POSSIBLE TEXTURES INTO AN ARRAY:
@@ -32,7 +31,7 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node) -> void:
 	var node_main: Node = get_node("/root/Main")
-	if body.name == "PlayerFish": # Trigger when player collides with fish
+	if body.name == "PlayerFish" && !player.getIsGameOver(): # Trigger when player collides with fish
 		if fish_size <= player.getSize():
 			node_main.set_score(pointValue)
 			#print(str(main.score))
