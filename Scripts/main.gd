@@ -5,7 +5,7 @@ var playerSize: int = 1
 var numLives: int = 3
 var invincible: bool = false
 @onready var transition = $Transition
-
+@onready var fader = $UI/Fader
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#transition.doFadeOut()
@@ -15,6 +15,7 @@ func _ready() -> void:
 	winGame.visible = false
 	pass # Replace with function body.
 
+	fader.fadeIn()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
