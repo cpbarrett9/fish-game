@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var 	scoreLabel = $"../UI/ProgressBar/ScoreLabel"
 @onready var		fader = $"../UI/Fader"
 @onready var 	biteSounds = $"../Audio/BiteSounds"
+@onready var 	audio = $"../Audio"
 
 # Scores thresholds triggering sizes + tracking booleans:
 @export var scoreToWin = 300
@@ -42,10 +43,11 @@ func _process(delta: float) -> void:
 		var winGame: Node = get_node("/root/Main/UI/YouWin")
 		winGame.visible = true
 		winTriggered = true
+		audio.playWin()
 		Engine.time_scale = 0.3 
 		await get_tree().create_timer(0.6).timeout
 		fader.fadeOut()
-		await get_tree().create_timer(0.3).timeout
+		await get_tree().create_timer(0.5).timeout
 		Engine.time_scale = 1
 		get_tree().change_scene_to_file("res://Scenes/Levels/MainMenu.tscn")
 	

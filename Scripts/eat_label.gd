@@ -7,6 +7,7 @@ extends Label
 @onready var largeFishShader = preload("res://Materials/large_fish_shader.tres")
 @onready var node_main: Node2D = $"../.."
 @onready var player = $"../../PlayerFish"
+@onready var thoughtBubble = $"../../PlayerFish/ThoughtBubble"
 
 var hasReachedMedium: bool = false
 var hasReachedLarge: bool = false
@@ -20,9 +21,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if player.getSize() == 2 && !hasReachedMedium:
 		activateMedFish()
+		thoughtBubble.appear()
 		hasReachedMedium = true
 	if player.getSize() == 3 && !hasReachedLarge:
 		activateLargeFish()
+		thoughtBubble.appear()
 		hasReachedLarge = true
 	
 func activateMedFish() -> void:

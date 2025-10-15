@@ -1,9 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://cstrpg5n8semn"]
+[gd_scene load_steps=29 format=3 uid="uid://cstrpg5n8semn"]
 
 [ext_resource type="Script" uid="uid://pp5ouem56jyh" path="res://Scripts/main.gd" id="1_7i1ub"]
 [ext_resource type="Script" uid="uid://y2n532cv67ei" path="res://Scripts/player_fish.gd" id="1_s0gyx"]
 [ext_resource type="Texture2D" uid="uid://c1pxuv2gm3cgs" path="res://Sprites/coral reef.png" id="2_w0lsm"]
 [ext_resource type="Texture2D" uid="uid://c5srg1m6v0wvf" path="res://Sprites/sprite_stripedFish.png" id="4_w0lsm"]
+[ext_resource type="Texture2D" uid="uid://d0kwqx62bjbxk" path="res://Sprites/speech-bubble-thought-bubble-comic-bubble-transparent-free-free-png-3124598379.png" id="5_0w7p8"]
+[ext_resource type="Script" uid="uid://br71te8fg2v45" path="res://Scripts/thought_bubble.gd" id="5_8rt6e"]
 [ext_resource type="Script" uid="uid://bxgsnit0wmyd4" path="res://Scripts/spawner.gd" id="7_irfg1"]
 [ext_resource type="Script" uid="uid://d3g0bku0be5ur" path="res://Scenes/Levels/label.gd" id="9_5sf7f"]
 [ext_resource type="FontFile" uid="uid://bp0uouxxll3gu" path="res://BAUHS93.TTF" id="9_d8okw"]
@@ -21,7 +23,10 @@
 [ext_resource type="Material" uid="uid://bd8k8u82ywpjp" path="res://Materials/large_fish_shader.tres" id="15_0w7p8"]
 [ext_resource type="AudioStream" uid="uid://c2yt1rnaokiio" path="res://Audio/Music/bgm_game.ogg" id="20_d3pra"]
 [ext_resource type="AudioStream" uid="uid://b5odq8qmcaphy" path="res://Audio/Sound/sfx_underwater.ogg" id="21_rrvv5"]
+[ext_resource type="Script" uid="uid://bcv4gwqhtefh5" path="res://Scripts/audio.gd" id="22_2tpv6"]
 [ext_resource type="AudioStream" uid="uid://l3o46eus21sd" path="res://Audio/Sound/Bite Sounds/bite_sounds.tres" id="22_g8fqy"]
+[ext_resource type="AudioStream" uid="uid://df8fset1aqo33" path="res://Audio/Sound/sfx_idea.ogg" id="25_ksskw"]
+[ext_resource type="AudioStream" uid="uid://oa5k643vm2fj" path="res://Audio/Sound/sfx_win.ogg" id="27_wnekd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w0lsm"]
 size = Vector2(88, 70)
@@ -66,6 +71,33 @@ limit_right = 1696
 limit_bottom = 951
 limit_smoothed = true
 position_smoothing_enabled = true
+
+[node name="ThoughtBubble" type="Node2D" parent="PlayerFish"]
+script = ExtResource("5_8rt6e")
+
+[node name="sprite_bubble" type="Sprite2D" parent="PlayerFish/ThoughtBubble"]
+position = Vector2(5.000061, -49)
+scale = Vector2(0.056068987, 0.056068987)
+texture = ExtResource("5_0w7p8")
+
+[node name="YellowFish" type="Sprite2D" parent="PlayerFish/ThoughtBubble"]
+material = ExtResource("13_g8fqy")
+position = Vector2(4, -56)
+rotation = 0.0012687271
+scale = Vector2(0.19312887, 0.19312887)
+texture = ExtResource("11_hlgat")
+
+[node name="RedFish" type="Sprite2D" parent="PlayerFish/ThoughtBubble"]
+material = ExtResource("15_0w7p8")
+position = Vector2(3.9999695, -55.999992)
+scale = Vector2(0.18105169, 0.18105173)
+texture = ExtResource("12_d3pra")
+
+[node name="GreenFish" type="Sprite2D" parent="PlayerFish/ThoughtBubble"]
+material = ExtResource("10_hlgat")
+position = Vector2(6, -57)
+scale = Vector2(0.21404374, 0.22230609)
+texture = ExtResource("10_pgcb0")
 
 [node name="Spawner" type="Node2D" parent="."]
 script = ExtResource("7_irfg1")
@@ -193,6 +225,7 @@ texture = ExtResource("13_snpdt")
 script = ExtResource("14_snpdt")
 
 [node name="Audio" type="Node2D" parent="."]
+script = ExtResource("22_2tpv6")
 
 [node name="BgmGame" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("20_d3pra")
@@ -202,7 +235,7 @@ parameters/looping = true
 
 [node name="SfxUnderwater" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("21_rrvv5")
-volume_db = -6.9
+volume_db = -8.379
 autoplay = true
 parameters/looping = true
 
@@ -210,3 +243,11 @@ parameters/looping = true
 stream = ExtResource("22_g8fqy")
 volume_db = -2.465
 bus = &"SFX"
+
+[node name="SfxIdea" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("25_ksskw")
+volume_db = -21.193
+
+[node name="SfxWin" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("27_wnekd")
+volume_db = -13.801

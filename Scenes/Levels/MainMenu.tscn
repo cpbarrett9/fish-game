@@ -115,13 +115,13 @@ texture = ExtResource("3_d2tbo")
 
 [node name="sfx_splash" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("15_kv2kq")
-volume_db = 6.271
+volume_db = 4.18
 panning_strength = 0.0
 bus = &"SFX"
 
 [node name="BgmMenu" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("16_xp410")
-volume_db = -8.931
+volume_db = -10.41
 autoplay = true
 bus = &"BGM"
 parameters/looping = true
