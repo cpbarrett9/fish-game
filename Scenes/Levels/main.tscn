@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c1pxuv2gm3cgs" path="res://Sprites/coral reef.png" id="2_w0lsm"]
 [ext_resource type="Script" uid="uid://bnk3bomgijl2y" path="res://Scripts/npc_fish.gd" id="2_yjsus"]
 [ext_resource type="Texture2D" uid="uid://c5srg1m6v0wvf" path="res://Sprites/sprite_stripedFish.png" id="4_w0lsm"]
-[ext_resource type="PackedScene" uid="uid://4rhbs285kinv" path="res://Scenes/Objects/npc_fish.tscn" id="5_w0lsm"]
+[ext_resource type="PackedScene" uid="uid://b5db7dwugwytt" path="res://Scenes/Objects/npc_fish.tscn" id="5_w0lsm"]
 [ext_resource type="Script" uid="uid://bxgsnit0wmyd4" path="res://Scripts/spawner.gd" id="7_irfg1"]
 [ext_resource type="Script" uid="uid://d3g0bku0be5ur" path="res://Scenes/Levels/label.gd" id="9_5sf7f"]
 [ext_resource type="FontFile" uid="uid://bp0uouxxll3gu" path="res://BAUHS93.TTF" id="9_d8okw"]
@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://be0ijoulxjhsj" path="res://Scripts/eat_label.gd" id="10_d3pra"]
 [ext_resource type="Material" uid="uid://dkcj2cadq4nru" path="res://Materials/small_fish_shader.tres" id="10_hlgat"]
 [ext_resource type="Texture2D" uid="uid://ryu4iwqu4v6h" path="res://Sprites/sprite_fish8.png" id="10_pgcb0"]
-[ext_resource type="PackedScene" uid="uid://cuc7y1oasfxu6" path="res://Scenes/3Lives.tscn" id="11_0iqpd"]
+[ext_resource type="PackedScene" uid="uid://pyvgse1m3b7d" path="res://Scenes/3Lives.tscn" id="11_0iqpd"]
 [ext_resource type="Texture2D" uid="uid://doax4ix1xvxnt" path="res://Sprites/sprite_fish1.png" id="11_hlgat"]
 [ext_resource type="Texture2D" uid="uid://b1e5sl5nt6rw3" path="res://Sprites/sprite_fish3.png" id="12_d3pra"]
 [ext_resource type="Script" uid="uid://dr7wp4ioa68p2" path="res://Scripts/progress_bar.gd" id="13_5txqb"]
@@ -43,15 +43,8 @@ speed = 3.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_w0lsm")
 
-[node name="CollisionShape2DCircle" type="CollisionShape2D" parent="PlayerFish"]
-position = Vector2(1, 4)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_pgcb0")
-
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerFish"]
-visible = false
 polygon = PackedVector2Array(-35, 6, -32, 10, -34, 19, -21, 9, -6, 21, -4, 34, 4, 25, 13, 24, 15, 28, 14, 33, 21, 27, 25, 19, 31, 14, 36, 12, 38, 6, 34, 0, 30, -3, 27, -12, 18, -19, 7, -34, 6, -29, 8, -17, 3, -17, -6, -27, -15, -33, -14, -29, -11, -22, -15, -14, -16, -9, -20, -3, -37, -17, -39, -13, -37, -2, -37, 2)
-disabled = true
 
 [node name="CollisionPolygon2DTEST" type="CollisionPolygon2D" parent="PlayerFish"]
 visible = false

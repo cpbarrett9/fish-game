@@ -6,6 +6,7 @@ extends Label
 @onready var largeFish: Sprite2D = $RedFish
 @onready var largeFishShader = preload("res://Materials/large_fish_shader.tres")
 @onready var node_main: Node2D = $"../.."
+@onready var player = $"../../PlayerFish"
 
 var hasReachedMedium: bool = false
 var hasReachedLarge: bool = false
@@ -17,10 +18,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if node_main.getSize() == 2 && !hasReachedMedium:
+	if player.getSize() == 2 && !hasReachedMedium:
 		activateMedFish()
 		hasReachedMedium = true
-	if node_main.getSize() == 3 && !hasReachedLarge:
+	if player.getSize() == 3 && !hasReachedLarge:
 		activateLargeFish()
 		hasReachedLarge = true
 	

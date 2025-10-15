@@ -81,8 +81,8 @@ func gameOver():
 	# Hide sprite / display message:
 	if !isGameOver:
 		isGameOver = true
-		$CollisionShape2DCircle.disabled = true # <- Disable collision so fish aren't getting eaten during gameover
-		$CollisionShape2D.disabled = true
+		#$CollisionShape2DCircle.disabled = true # <- Disable collision so fish aren't getting eaten during gameover
+		#$CollisionShape2D.disabled = true
 		sprite.visible = false
 		movementEnabled = false
 		node_main.numLives -= 1
@@ -96,8 +96,8 @@ func gameOver():
 			else: node_main.setScore(0)
 			
 			# Restore position and re-enable stuff
-			$CollisionPolygon2D.disabled = false
-			$CollisionShape2D.disabled = false
+			#$CollisionPolygon2D.disabled = false
+			#$CollisionShape2D.disabled = false
 			sprite.visible = true
 			movementEnabled = true
 			position = Vector2(577, 325)
