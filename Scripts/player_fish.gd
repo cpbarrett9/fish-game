@@ -4,17 +4,17 @@ extends CharacterBody2D
 @onready var 	sprite = $Sprite2D
 @onready var 	size: int = 1
 @onready var 	node_main: Node = get_node("/root/Main")
-@onready var 	collisionpolygon = $CollisionPolygon2DTEST
+@onready var 	collisionpolygon = $CollisionShape2DCircle
 @onready var 	characterbody = $CharacterBody2D
 @onready var 	transition = $"../Transition"
 @onready var 	scoreLabel = $"../UI/ProgressBar/ScoreLabel"
 
 # Scores thresholds triggering sizes + tracking booleans:
-@export var scoreToWin = 300
+@export var scoreToWin = 250
 var winTriggered: bool = false
-@export var scoreForLarge = 150
+@export var scoreForLarge = 220
 var largeTriggered: bool = false
-@export var scoreForMedium = 50
+@export var scoreForMedium = 100
 var mediumTriggered: bool = false
 
 # For disabling/enabling movement:
@@ -81,7 +81,7 @@ func gameOver():
 	# Hide sprite / display message:
 	if !isGameOver:
 		isGameOver = true
-		$CollisionPolygon2D.disabled = true # <- Disable collision so fish aren't getting eaten during gameover
+		$CollisionShape2DCircle.disabled = true # <- Disable collision so fish aren't getting eaten during gameover
 		$CollisionShape2D.disabled = true
 		sprite.visible = false
 		movementEnabled = false
