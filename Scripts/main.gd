@@ -9,6 +9,10 @@ var invincible: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#transition.doFadeOut()
+	var loseGame: Node = get_node("/root/Main/UI/GameOver")
+	loseGame.visible = false
+	var winGame: Node = get_node("/root/Main/UI/YouWin")
+	winGame.visible = false
 	pass # Replace with function body.
 
 

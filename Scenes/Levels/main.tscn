@@ -18,9 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://b1e5sl5nt6rw3" path="res://Sprites/sprite_fish3.png" id="12_d3pra"]
 [ext_resource type="Script" uid="uid://dr7wp4ioa68p2" path="res://Scripts/progress_bar.gd" id="13_5txqb"]
 [ext_resource type="Material" uid="uid://qukk0lrnb7t1" path="res://Materials/medium_fish_shader.tres" id="13_g8fqy"]
-[ext_resource type="Script" uid="uid://t86ev605jg0t" path="res://Scripts/game_over.gd" id="13_irn1k"]
+[ext_resource type="Script" path="res://Scripts/game_over.gd" id="13_irn1k"]
 [ext_resource type="Texture2D" uid="uid://84kyueo3ny10" path="res://Sprites/sprite_black.jpg" id="13_snpdt"]
-[ext_resource type="Script" uid="uid://n2x4vml63a2o" path="res://Scripts/dim_overlay.gd" id="14_snpdt"]
+[ext_resource type="Script" path="res://Scripts/dim_overlay.gd" id="14_snpdt"]
 [ext_resource type="Material" uid="uid://bd8k8u82ywpjp" path="res://Materials/large_fish_shader.tres" id="15_0w7p8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w0lsm"]
@@ -167,6 +167,30 @@ theme_override_font_sizes/font_size = 37
 text = "Score: "
 horizontal_alignment = 1
 script = ExtResource("10_asd15")
+
+[node name="GameOver" type="Label" parent="UI"]
+offset_left = 621.0
+offset_top = 92.0
+offset_right = 1004.0
+offset_bottom = 183.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("9_d8okw")
+theme_override_font_sizes/font_size = 80
+text = "Game Over"
+
+[node name="YouWin" type="Label" parent="UI"]
+offset_left = 661.0
+offset_top = 87.0
+offset_right = 975.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("9_d8okw")
+theme_override_font_sizes/font_size = 90
+text = "You Win"
 
 [node name="Transition" type="CanvasLayer" parent="."]
 visible = false

@@ -39,6 +39,8 @@ func _process(delta: float) -> void:
 	# Check when to increase size when a score thresholds are reached:
 	if score > scoreToWin && !winTriggered: 
 		print("Game won!")
+		var winGame: Node = get_node("/root/Main/UI/YouWin")
+		winGame.visible = true
 		winTriggered = true
 	if score > scoreForLarge && !largeTriggered: 
 		size = 3 #3 = LARGE
@@ -106,6 +108,8 @@ func gameOver():
 			toggleInvincible(2)
 			
 		else: # <- If not, then game over for real
+			var loseGame: Node = get_node("/root/Main/UI/GameOver")
+			loseGame.visible = true
 			transition.doFadeIn()
 			await get_tree().create_timer(3).timeout
 			node_main.reload_current_scene()
