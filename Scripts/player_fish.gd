@@ -26,7 +26,7 @@ var isGameOver: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	toggleInvincible(2)
 
 func getSize() -> int:
 	return size
@@ -68,6 +68,14 @@ func getPosition() -> Vector2:
 	var y: float = position.y
 	return Vector2(x,y)
 
+func toggleInvincible(seconds: int):
+	print("Toggled")
+	node_main.invincibleOn()
+	sprite.modulate.a = 0.5
+	await get_tree().create_timer(seconds).timeout
+	node_main.invincibleOff()
+	sprite.modulate.a = 1
+
 func gameOver():
 	# Hide sprite / display message:
 	if !isGameOver:
@@ -94,6 +102,7 @@ func gameOver():
 			position = Vector2(577, 325)
 			$"../UI/ScoreLabel".updateScoreManually() # <- Manually set the label to update to new score
 			isGameOver = false
+			toggleInvincible(2)
 			
 		else: # <- If not, then game over for real
 			transition.doFadeIn()

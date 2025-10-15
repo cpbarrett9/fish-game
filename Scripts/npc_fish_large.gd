@@ -36,7 +36,7 @@ func _on_body_entered(body: Node) -> void:
 			node_main.set_score(pointValue)
 			#print(str(main.score))
 			queue_free()
-		else:
+		elif !node_main.isInvincible():
 			player.gameOver()
 
 func bob() -> void:

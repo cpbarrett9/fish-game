@@ -1,10 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://cstrpg5n8semn"]
+[gd_scene load_steps=17 format=3 uid="uid://cstrpg5n8semn"]
 
 [ext_resource type="Script" uid="uid://pp5ouem56jyh" path="res://Scripts/main.gd" id="1_7i1ub"]
 [ext_resource type="Script" uid="uid://y2n532cv67ei" path="res://Scripts/player_fish.gd" id="1_s0gyx"]
 [ext_resource type="Texture2D" uid="uid://c1pxuv2gm3cgs" path="res://Sprites/coral reef.png" id="2_w0lsm"]
 [ext_resource type="Script" uid="uid://bnk3bomgijl2y" path="res://Scripts/npc_fish.gd" id="2_yjsus"]
-[ext_resource type="Shader" uid="uid://0p8kqhjo1si0" path="res://Scenes/Levels/main.gdshader" id="4_tpkgp"]
 [ext_resource type="Texture2D" uid="uid://c5srg1m6v0wvf" path="res://Sprites/sprite_stripedFish.png" id="4_w0lsm"]
 [ext_resource type="PackedScene" uid="uid://b5db7dwugwytt" path="res://Scenes/Objects/npc_fish.tscn" id="5_w0lsm"]
 [ext_resource type="Script" uid="uid://bxgsnit0wmyd4" path="res://Scripts/spawner.gd" id="7_irfg1"]
@@ -16,11 +15,6 @@
 [ext_resource type="Script" uid="uid://t86ev605jg0t" path="res://Scripts/game_over.gd" id="13_irn1k"]
 [ext_resource type="Texture2D" uid="uid://84kyueo3ny10" path="res://Sprites/sprite_black.jpg" id="13_snpdt"]
 [ext_resource type="Script" uid="uid://n2x4vml63a2o" path="res://Scripts/dim_overlay.gd" id="14_snpdt"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_irfg1"]
-shader = ExtResource("4_tpkgp")
-shader_parameter/contrast = 2.50000011875
-shader_parameter/tint_color = Color(1, 0.37254903, 0.12156863, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w0lsm"]
 size = Vector2(88, 70)
@@ -39,7 +33,6 @@ script = ExtResource("1_s0gyx")
 speed = 3.0
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerFish"]
-material = SubResource("ShaderMaterial_irfg1")
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_w0lsm")
 
@@ -118,9 +111,9 @@ script = ExtResource("9_5sf7f")
 position = Vector2(239, 45)
 
 [node name="ProgressBar" type="ProgressBar" parent="UI"]
-offset_left = 526.0
+offset_left = 527.0
 offset_top = 13.0
-offset_right = 1233.0
+offset_right = 1234.0
 offset_bottom = 69.0
 theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)

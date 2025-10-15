@@ -3,6 +3,7 @@ extends Node2D
 var score: int = 0
 var playerSize: int = 1
 var numLives: int = 3
+var invincible: bool = false
 @onready var transition = $Transition
 
 # Called when the node enters the scene tree for the first time.
@@ -37,6 +38,17 @@ func setSize(newSize: int) -> void:
 func incrementSize() -> void:
 	playerSize = playerSize + 1
 
+#Invincibility code:
+func invincibleOn() -> void:
+	invincible = true
+	print("Invincible on")
+	
+func invincibleOff() -> void:
+	invincible = false
+	print("Invincible off")
+	
+func isInvincible() -> bool:
+	return invincible
 
 signal score_changed(new_score)
 func set_score(value):
