@@ -1,16 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://88vl1s8vyqdu"]
+[gd_scene load_steps=15 format=3 uid="uid://88vl1s8vyqdu"]
 
 [ext_resource type="Script" uid="uid://crxmip1k7hmna" path="res://Scripts/main_menu.gd" id="1_0t1wx"]
 [ext_resource type="Texture2D" uid="uid://84kyueo3ny10" path="res://Sprites/sprite_black.jpg" id="1_mke16"]
 [ext_resource type="FontFile" uid="uid://bp0uouxxll3gu" path="res://BAUHS93.TTF" id="2_koonp"]
 [ext_resource type="Texture2D" uid="uid://damq2xhi8wqc2" path="res://Sprites/sprite_king.png" id="3_d2tbo"]
+[ext_resource type="PackedScene" uid="uid://bmuc6m10yfipd" path="res://Scenes/Objects/menu_fish.tscn" id="4_cwjnk"]
+[ext_resource type="Material" uid="uid://bd8k8u82ywpjp" path="res://Materials/large_fish_shader.tres" id="5_2xmls"]
+[ext_resource type="Texture2D" uid="uid://dagxa8d00o7pt" path="res://Sprites/sprite_fish4.png" id="5_82l7r"]
 [ext_resource type="Texture2D" uid="uid://dvl314jo85ioe" path="res://Sprites/sprite_fish10.png" id="5_cwjnk"]
+[ext_resource type="Texture2D" uid="uid://cxrpqi1evckqi" path="res://Sprites/sprite_fish7.png" id="5_x0g5v"]
+[ext_resource type="Texture2D" uid="uid://dlsbpy5jauomp" path="res://Sprites/sprite_menuBG.png" id="6_cwjnk"]
+[ext_resource type="Material" uid="uid://dkcj2cadq4nru" path="res://Materials/small_fish_shader.tres" id="7_2xmls"]
+[ext_resource type="Material" uid="uid://qukk0lrnb7t1" path="res://Materials/medium_fish_shader.tres" id="7_lm8k6"]
+[ext_resource type="Texture2D" uid="uid://byfkdb2iaac1v" path="res://Sprites/sprite_fish9.png" id="8_lm8k6"]
+[ext_resource type="Script" uid="uid://dwjxamwv06f1q" path="res://Scripts/subtitle.gd" id="12_lm8k6"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_0t1wx")
 
 [node name="BG" type="Sprite2D" parent="."]
-position = Vector2(799.49994, 447.50003)
+position = Vector2(799, 446.00003)
 scale = Vector2(0.8317708, 0.83425933)
 texture = ExtResource("1_mke16")
 
@@ -26,33 +35,73 @@ position_smoothing_enabled = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Title" type="Label" parent="UI"]
-offset_left = -29.0
+[node name="SpriteMenuBg" type="Sprite2D" parent="UI"]
+position = Vector2(808.99994, 451.99997)
+scale = Vector2(2.8641975, 2.8641977)
+texture = ExtResource("6_cwjnk")
+
+[node name="Images" type="Node2D" parent="UI"]
+position = Vector2(50, 0)
+
+[node name="MenuFish" parent="UI/Images" instance=ExtResource("4_cwjnk")]
+material = ExtResource("5_2xmls")
+position = Vector2(1559, 673.5)
+texture = ExtResource("5_82l7r")
+
+[node name="MenuFish2" parent="UI/Images" instance=ExtResource("4_cwjnk")]
+material = ExtResource("7_lm8k6")
+position = Vector2(1159, 673.5)
+texture = ExtResource("5_x0g5v")
+
+[node name="MenuFish3" parent="UI/Images" instance=ExtResource("4_cwjnk")]
+material = ExtResource("7_2xmls")
+position = Vector2(759, 673.5)
+texture = ExtResource("8_lm8k6")
+
+[node name="MenuFish4" parent="UI/Images" instance=ExtResource("4_cwjnk")]
+position = Vector2(359, 673.5)
+
+[node name="MenuFish5" parent="UI/Images" instance=ExtResource("4_cwjnk")]
+position = Vector2(-67, 674)
+texture = ExtResource("5_cwjnk")
+
+[node name="Title" type="Node2D" parent="UI"]
+position = Vector2(282, 38)
+
+[node name="Subtitle" type="Label" parent="UI/Title"]
+offset_left = 200.0
+offset_top = 285.0
+offset_right = 1106.0
+offset_bottom = 381.0
+theme_override_colors/font_color = Color(0.9372549, 0.5647059, 0.32156864, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 11
+theme_override_constants/outline_size = 14
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("2_koonp")
+theme_override_font_sizes/font_size = 67
+text = "CLICK TO START"
+script = ExtResource("12_lm8k6")
+
+[node name="Title" type="Label" parent="UI/Title"]
+offset_left = 186.0
 offset_top = 84.0
 offset_right = 1119.0
-offset_bottom = 655.0
+offset_bottom = 311.0
+theme_override_colors/font_color = Color(0.85490197, 0.85490197, 0.85490197, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 15
+theme_override_constants/shadow_outline_size = 20
 theme_override_fonts/font = ExtResource("2_koonp")
 theme_override_font_sizes/font_size = 200
-text = "FISH GAME
-"
+text = "FISH GAME"
 horizontal_alignment = 1
 
-[node name="Subtitle" type="Label" parent="UI"]
-offset_left = -65.0
-offset_top = 291.0
-offset_right = 1083.0
-offset_bottom = 389.0
-theme_override_fonts/font = ExtResource("2_koonp")
-theme_override_font_sizes/font_size = 75
-text = "Click to start"
-horizontal_alignment = 1
-
-[node name="SpriteKing" type="Sprite2D" parent="UI"]
-position = Vector2(1239, 474.99997)
-scale = Vector2(3.0432098, 3.0432098)
+[node name="SpriteKing" type="Sprite2D" parent="UI/Title"]
+position = Vector2(13, 231)
+scale = Vector2(1.6065394, 1.6065394)
 texture = ExtResource("3_d2tbo")
-
-[node name="Seahorse" type="Sprite2D" parent="."]
-position = Vector2(298.00003, 627.00006)
-scale = Vector2(1.8333334, 1.8333334)
-texture = ExtResource("5_cwjnk")

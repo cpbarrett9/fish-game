@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmuc6m10yfipd"]
+
+[ext_resource type="Texture2D" uid="uid://c5srg1m6v0wvf" path="res://Sprites/sprite_stripedFish.png" id="1_3kaiv"]
+[ext_resource type="Script" uid="uid://col1mb8b78cil" path="res://Scripts/sprite_striped_fish.gd" id="2_u2a30"]
+
+[node name="MenuFish" type="Sprite2D"]
+texture = ExtResource("1_3kaiv")
+flip_h = true
+script = ExtResource("2_u2a30")

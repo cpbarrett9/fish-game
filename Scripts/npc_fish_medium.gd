@@ -29,6 +29,7 @@ func _ready() -> void:
 	sprite.texture = fish_textures[random_index]
 	connect("body_entered", Callable(self, "_on_body_entered"))
 	bob()
+	removeTimer()
 	
 	randomize()  
 	base_y = position.y
@@ -61,3 +62,7 @@ func bob() -> void:
 	
 	tween.tween_property(self, "position:y", up_y, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(self, "position:y", down_y, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+func removeTimer() -> void:
+	await get_tree().create_timer(20).timeout
+	queue_free()

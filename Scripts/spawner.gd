@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var xMin: int = -30
-@export var xMax: int = 1730
+@export var xMin: int = -200
+@export var xMax: int = 1900
 @export var yMin: int = 30
 @export var yMax: int = 850
 @export var minSeconds: float = 0

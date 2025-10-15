@@ -10,7 +10,7 @@ extends CharacterBody2D
 @onready var		fader = $"../UI/Fader"
 
 # Scores thresholds triggering sizes + tracking booleans:
-@export var scoreToWin = 250
+@export var scoreToWin = 300
 var winTriggered: bool = false
 @export var scoreForLarge = 220
 var largeTriggered: bool = false
@@ -27,7 +27,8 @@ var isGameOver: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	toggleInvincible(2)
+	#toggleInvincible(2)
+	pass
 
 func getSize() -> int:
 	return size
@@ -46,12 +47,12 @@ func _process(delta: float) -> void:
 		fader.fadeOut()
 		await get_tree().create_timer(0.3).timeout
 		Engine.time_scale = 1
-		node_main.reload_current_scene()
+		get_tree().change_scene_to_file("res://Scenes/Levels/MainMenu.tscn")
 	
-	if score > scoreForLarge && !largeTriggered: 
+	if score >= scoreForLarge && !largeTriggered: 
 		size = 3 #3 = LARGE
 		largeTriggered = true
-	if score > scoreForMedium && !mediumTriggered: 
+	if score >= scoreForMedium && !mediumTriggered: 
 		size = 2 #2 = SMALL
 		mediumTriggered = true
 	
@@ -119,4 +120,4 @@ func gameOver():
 			await get_tree().create_timer(2).timeout
 			fader.fadeOut()
 			await get_tree().create_timer(1).timeout
-			node_main.reload_current_scene()
+			get_tree().change_scene_to_file("res://Scenes/Levels/MainMenu.tscn")
