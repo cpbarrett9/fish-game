@@ -1,10 +1,19 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://c3m2u3nbljant"]
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://c3m2u3nbljant"]
+
+[sub_resource type="AudioEffectEQ" id="AudioEffectEQ_j3pel"]
+resource_name = "EQ"
+band_db/32_hz = -24.6
+band_db/100_hz = -27.4
+band_db/320_hz = -23.2
+band_db/1000_hz = -0.4
+band_db/3200_hz = 10.6
+band_db/10000_hz = 10.6
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_j3pel"]
 resource_name = "Reverb"
-room_size = 0.28
+room_size = 0.21
 damping = 0.74
-wet = 0.16
+wet = 0.13
 
 [resource]
 bus/0/volume_db = -3.8857892
@@ -26,5 +35,7 @@ bus/3/mute = false
 bus/3/bypass_fx = false
 bus/3/volume_db = 0.0
 bus/3/send = &"Master"
-bus/3/effect/0/effect = SubResource("AudioEffectReverb_j3pel")
+bus/3/effect/0/effect = SubResource("AudioEffectEQ_j3pel")
 bus/3/effect/0/enabled = true
+bus/3/effect/1/effect = SubResource("AudioEffectReverb_j3pel")
+bus/3/effect/1/enabled = true
