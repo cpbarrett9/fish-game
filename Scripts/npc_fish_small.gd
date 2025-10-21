@@ -2,7 +2,7 @@ extends Area2D
 
 @onready var sprite = $Sprite2D
 @onready var main: Node2D = get_tree().get_root().get_node("Main")
-@export var travelSpeed: float = randf_range(3,5)
+@export var travelSpeed: float = randf_range(200,380)
 @export var pointValue: int = 3
 @onready var tween = create_tween() # For bobbing fish animation
 @export var fish_size: int = 1
@@ -27,7 +27,7 @@ func getSprite() -> Sprite2D:
 	return sprite
 
 func _process(delta: float) -> void:
-	position.x += travelSpeed
+	position.x += travelSpeed * delta
 
 func _on_body_entered(body: Node) -> void:
 	var node_main: Node = get_node("/root/Main")
