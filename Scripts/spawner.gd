@@ -33,26 +33,33 @@ func spawn_fish(seconds: float) -> void:
 		if rng <= 5: fish_instance = fish_scene_small.instantiate()  # Create a new copy of Fish.tscn
 		elif rng <= 9: fish_instance = fish_scene_medium.instantiate()
 		else: fish_instance = fish_scene_large.instantiate()
+		
+		travelSpeed = randf_range(180,350)
 	elif node_PlayerFish.getSize() == 2:
 		var rng: int = randi_range(1, 10) # Randomly determine size of fish to spawn
 		if rng <= 4: fish_instance = fish_scene_small.instantiate()  # Create a new copy of Fish.tscn
 		elif rng <= 7: fish_instance = fish_scene_medium.instantiate()
 		else: fish_instance = fish_scene_large.instantiate()
+		
+		travelSpeed = randf_range(180,260)
 	elif node_PlayerFish.getSize() == 3:
 		var rng: int = randi_range(1, 10) # Randomly determine size of fish to spawn
 		if rng <= 1: fish_instance = fish_scene_small.instantiate()  # Create a new copy of Fish.tscn
 		elif rng <= 4: fish_instance = fish_scene_medium.instantiate()
 		else: fish_instance = fish_scene_large.instantiate()
+		
+		travelSpeed = randf_range(100,180)
 	
 	# LEFT OR RIGHT?
 	match spawnSide:
 		1: #LEFT:
 			spawnPosition = Vector2(xMin, randf_range(yMin, yMax)) # Spawn on left side
-			travelSpeed = 3 # Spawned on left, so travel right
+			#travelSpeed = 250 # Spawned on left, so travel right
 			fish_instance.get_node("Sprite2D").flip_h = false
 		2: #RIGHT:
 			spawnPosition = Vector2(xMax, randf_range(yMin, yMax)) # Spawn on right side
-			travelSpeed = -3 #Spawned on right, so travel left
+			#travelSpeed = -250 #Spawned on right, so travel left
+			travelSpeed = travelSpeed*-1
 			fish_instance.get_node("Sprite2D").flip_h = true
 	
 	# SPAWN FISH OF APPROPRIATE TYPE WITH APPROPRIATE PARAMETERS:
