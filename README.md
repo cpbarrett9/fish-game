@@ -10,6 +10,8 @@
 </ul>
 
 <h2>How to run</h2>
-Mac: Open FishGame.dmg
-<br>Windows: Open FishGame.exe
-<br>Or play online at https://cpbarrett.itch.io/fish-game or https://cpbarrett9.github.io/fish-game-browser/.
+<ul>
+  <li>Mac: Open FishGame.dmg</li>
+  <li>Windows: Open FishGame.exe</li>
+</ul>
+Or play online at https://cpbarrett.itch.io/fish-game or https://cpbarrett9.github.io/fish-game-browser/.
