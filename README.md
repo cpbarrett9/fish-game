@@ -1,4 +1,4 @@
-<h1>Overview</h1>
+<h1><a href="https://cpbarrett.itch.io/fish-game">Fish Game</a></h1>
 <p>An arcade-style game where you eat smaller fish and avoid larger fish. Control the fish with your mouse cursor.</p>
 
 <img src="https://cpbarrett9.github.io/resources/fish-game_screenshot2.png">
